@@ -186,7 +186,9 @@ ul.main li a.active {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  /* background: red; */
 }
+
 .pageOptions {
   float: left;
   width: 30%;
@@ -274,4 +276,33 @@ ul.main li a.active {
 }
 .categoriesContainer a:hover {
   color: gray;
+}
+
+.pageRecentPosts{
+  float: left;
+  width: 30%;
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 0;
+  /* background: yellow; */
+}
+.recentTitlePosts{
+  width: 100%;
+  padding: 20px 0;
+  border: 1px solid transparent;
+  border-bottom: 2px solid #f2f2f2;
+  font-size: 25px;
+  font-family: "Roboto", sans-serif;
+}
+
+.recentContainer{
+  display: flex;
+  /* background: green; */
+}
+.recentImg{
+  float: left;
+  width: 50%;
+}
+.recentTitle{
+  float: right;
 }
