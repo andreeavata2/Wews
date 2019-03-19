@@ -304,8 +304,8 @@ ul.main li a.active {
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 1rem;
-  background-color: #a3a2a2;
+  padding: 1px;
+  background-color: #000;
   text-align: center;
 }
 
@@ -318,6 +318,14 @@ ul.main li a.active {
 .footer .creator{
   width: 100%;
   padding: 5px;
-  font-size: 10px;
+  font-size: 13px;
+  color: #fff;
   font-family: "Roboto", sans-serif;
+}
+
+.iconsFooter a i{
+  color: #000;;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
 }
