@@ -6,10 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
     <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
-    <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
@@ -17,9 +13,14 @@
     />
 
     <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
       href="https://fonts.googleapis.com/css?family=Playfair+Display|Srisakdi"
       rel="stylesheet"
     />
+
     <title>Document</title>
   </head>
   <body>
@@ -60,9 +61,11 @@
               beatae id! Recusandae, repellendus?
             </div>
             <div class="articleButton">
-              <button class="btn normal">
-                Vezi mai mult
-              </button>
+              <a href="post.html">
+                <button class="btn normal">
+                  Vezi mai mult
+                </button>
+              </a>
             </div>
           </div>
           <!-- aici se termina articolul  -->
@@ -84,9 +87,37 @@
               beatae id! Recusandae, repellendus?
             </div>
             <div class="articleButton">
-              <button class="btn normal">
-                Vezi mai mult
-              </button>
+              <a href="post.html">
+                <button class="btn normal">
+                  Vezi mai mult
+                </button>
+              </a>
+            </div>
+          </div>
+          <!-- aici se termina articolul  -->
+
+          <!-- aici incepe aricolul-->
+          <div class="articleContainer">
+            <div class="articleImg">
+              <img src="https://via.placeholder.com/400" alt="imgPost" />
+            </div>
+            <div class="articleTitle">
+              <span>
+                The best title ever.
+              </span>
+            </div>
+            <div class="articleDescription">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni at
+              ipsa esse, in, expedita facilis labore exercitationem ipsum
+              repellat neque ratione quidem distinctio molestiae impedit animi
+              beatae id! Recusandae, repellendus?
+            </div>
+            <div class="articleButton">
+               <a href="post.html">
+                <button class="btn normal">
+                  Vezi mai mult
+                </button>
+              </a>
             </div>
           </div>
           <!-- aici se termina articolul  -->
@@ -107,32 +138,11 @@
               beatae id! Recusandae, repellendus?
             </div>
             <div class="articleButton">
-              <button class="btn normal">
-                Vezi mai mult
-              </button>
-            </div>
-          </div>
-          <!-- aici se termina articolul  -->
-          <!-- aici incepe aricolul-->
-          <div class="articleContainer">
-            <div class="articleImg">
-              <img src="https://via.placeholder.com/400" alt="imgPost" />
-            </div>
-            <div class="articleTitle">
-              <span>
-                The best title ever.
-              </span>
-            </div>
-            <div class="articleDescription">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni at
-              ipsa esse, in, expedita facilis labore exercitationem ipsum
-              repellat neque ratione quidem distinctio molestiae impedit animi
-              beatae id! Recusandae, repellendus?
-            </div>
-            <div class="articleButton">
-              <button class="btn normal">
-                Vezi mai mult
-              </button>
+              <a href="post.html">
+                <button class="btn normal">
+                  Vezi mai mult
+                </button>
+              </a>
             </div>
           </div>
           <!-- aici se termina articolul  -->
@@ -146,7 +156,7 @@
               <div class="categoriesContainer">
                 <a href="#">
                   <span class="icon">
-                      <i class="fas fa-angle-right"></i>
+                    <i class="fas fa-angle-right"></i>
                   </span>
                   <span class="nameCategories">
                     Tehnologie
@@ -159,20 +169,7 @@
               <div class="categoriesContainer">
                 <a href="#">
                   <span class="icon">
-                      <i class="fas fa-angle-right"></i>
-                  </span>
-                  <span class="nameCategories">
-                    Politica
-                  </span>
-                  <span class="numberOfPostsForCategories">
-                    10
-                  </span>
-                </a>
-              </div>
-              <div class="categoriesContainer">
-                <a href="#">
-                  <span class="icon">
-                      <i class="fas fa-angle-right"></i>
+                    <i class="fas fa-angle-right"></i>
                   </span>
                   <span class="nameCategories">
                     Stiinta
@@ -185,7 +182,20 @@
               <div class="categoriesContainer">
                 <a href="#">
                   <span class="icon">
-                      <i class="fas fa-angle-right"></i>
+                    <i class="fas fa-angle-right"></i>
+                  </span>
+                  <span class="nameCategories">
+                    Politica
+                  </span>
+                  <span class="numberOfPostsForCategories">
+                    10
+                  </span>
+                </a>
+              </div>
+              <div class="categoriesContainer">
+                <a href="#">
+                  <span class="icon">
+                    <i class="fas fa-angle-right"></i>
                   </span>
                   <span class="nameCategories">
                     Sport
@@ -198,10 +208,10 @@
               <div class="categoriesContainer">
                 <a href="#">
                   <span class="icon">
-                      <i class="fas fa-angle-right"></i>
+                    <i class="fas fa-angle-right"></i>
                   </span>
                   <span class="nameCategories">
-                    Lifestyle
+                    Social
                   </span>
                   <span class="numberOfPostsForCategories">
                     10
@@ -212,12 +222,12 @@
           </div>
         </div>
 
-        <!--------------Recent Posts-------------->
+        <!--------------Postari recente-------------->
 
         <div class="pageRecentPosts">
           <div class="recentPosts">
             <div class="recentTitlePosts">
-              <span>Recent Posts</span>
+              <span>Postari Recente</span>
             </div>
             <div class="recentBody">
               <a href="#">
@@ -230,8 +240,11 @@
                       alt="recentPost"
                     />
                   </div>
-                  <div class="recentTitle">
-                    The best title ever...
+                  <div class="recentDescription">
+                    The best title ever Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Aliquid blanditiis natus, atque
+                    repellendus voluptates molestias quaerat ducimus fuga nisi,
+                    excepturi eum...
                   </div>
                 </div>
               </a>
@@ -244,8 +257,11 @@
                       alt="recentPost"
                     />
                   </div>
-                  <div class="recentTitle">
-                    The best title ever..
+                  <div class="recentDescription">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Voluptates, adipisci atque nihil sint iste aperiam
+                    distinctio est minima architecto tempore quae at cumque a
+                    quasi illo accusamus necessitatibus minus quia?
                   </div>
                 </div>
               </a>
@@ -258,8 +274,11 @@
                       alt="recentPost"
                     />
                   </div>
-                  <div class="recentTitle">
-                    The best title ever...
+                  <div class="recentDescription">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Temporibus laboriosam nostrum dignissimos, minus quasi
+                    impedit asperiores in facere incidunt delectus non sed ut
+                    autem ab quas nemo neque earum ea!
                   </div>
                 </div>
               </a>

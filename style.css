@@ -153,7 +153,7 @@ ul.main li a {
 }
 ul.main li a:hover,
 ul.main li a.active {
-  background:white;
+  background: white;
 }
 .main-title {
   box-sizing: border-box;
@@ -164,8 +164,8 @@ ul.main li a.active {
 }
 
 .main-title span {
-  font-family: 'Srisakdi', cursive;
-  font-family: 'Playfair Display', serif;
+  font-family: "Srisakdi", cursive;
+  font-family: "Playfair Display", serif;
   font-size: 30px;
   color: white;
   text-shadow: 1px 1px #000;
@@ -187,7 +187,6 @@ ul.main li a.active {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  /* background: red; */
 }
 
 .pageOptions {
@@ -250,8 +249,8 @@ ul.main li a.active {
   border: 1px solid transparent;
   border-bottom: 2px solid #f2f2f2;
   font-size: 25px;
-  font-family: 'Srisakdi', cursive;
-  font-family: 'Playfair Display', serif;
+  font-family: "Srisakdi", cursive;
+  font-family: "Playfair Display", serif;
 }
 .categoriesBody {
   width: 100%;
@@ -259,16 +258,15 @@ ul.main li a.active {
 .categoriesContainer {
   width: 100%;
   font-size: 20px;
- font-family: 'Srisakdi', cursive;
-  font-family: 'Playfair Display', serif;
-  
+  font-family: "Srisakdi", cursive;
+  font-family: "Playfair Display", serif;
 }
 
-.categoriesContainer span.numberOfPostsForCategories{
-    float: right;
-    background: #f2f2f2;
-    border-radius: 50%;
-    padding: 5px;
+.categoriesContainer span.numberOfPostsForCategories {
+  float: right;
+  background: #f2f2f2;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .categoriesContainer a {
@@ -281,49 +279,51 @@ ul.main li a.active {
   color: gray;
 }
 
-.pageRecentPosts{
+.pageRecentPosts {
   float: left;
   width: 30%;
   box-sizing: border-box;
   padding: 20px;
   margin: 0;
-  /* background: yellow; */
 }
-.recentTitlePosts{
+.recentTitlePosts {
   width: 100%;
   padding: 20px 0;
   border: 1px solid transparent;
   border-bottom: 2px solid #f2f2f2;
   font-size: 25px;
-  font-family: 'Srisakdi', cursive;
-  font-family: 'Playfair Display', serif;
+  font-family: "Srisakdi", cursive;
+  font-family: "Playfair Display", serif;
 }
-.recentBody{
+
+.recentBody {
   padding: 10px;
 }
 
-.recentContainer{
+.recentContainer {
   display: flex;
-  /* background: green; */
 }
-.recentImg{
+
+
+.recentImg {
   float: left;
   width: 50%;
+}
 
-}
-.recentTitle{
+.recentDescription {
   float: right;
-  padding: 5px;
-  font-family: 'Srisakdi', cursive;
-  font-family: 'Playfair Display', serif;
-  
+  padding: 20px;
+  font-family: "Srisakdi", cursive;
+  font-family: "Playfair Display", serif;
+  color:#000;
 }
- .recentBody a{
+
+.recentBody a {
   text-decoration: none;
- }
- .recentContainer .recentTitle:hover{
+}
+.recentContainer .recentDescription:hover {
   color: gray;
- }
- .recentContainer .recentImg:hover{
-  filter:grayscale(100%);
- }
+}
+.recentContainer .recentImg:hover {
+  filter: grayscale(100%);
+}
