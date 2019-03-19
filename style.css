@@ -128,7 +128,7 @@ header {
   background: #f2f2f2;
   color: #000;
   box-sizing: border-box;
-  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/HPWsSXb4xiwrj8lkx/videoblocks-tropical-beach-background-loop_bhjouqunm_thumbnail-full01.png");
+  background-image: url("https://isme.ie/wp-content/uploads/2018/07/banner_add_news.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -153,7 +153,7 @@ ul.main li a {
 }
 ul.main li a:hover,
 ul.main li a.active {
-  background: #b3b3b3;
+  background:white;
 }
 .main-title {
   box-sizing: border-box;
@@ -164,7 +164,8 @@ ul.main li a.active {
 }
 
 .main-title span {
-  font-family: "Srisakdi", cursive;
+  font-family: 'Srisakdi', cursive;
+  font-family: 'Playfair Display', serif;
   font-size: 30px;
   color: white;
   text-shadow: 1px 1px #000;
@@ -249,7 +250,8 @@ ul.main li a.active {
   border: 1px solid transparent;
   border-bottom: 2px solid #f2f2f2;
   font-size: 25px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Srisakdi', cursive;
+  font-family: 'Playfair Display', serif;
 }
 .categoriesBody {
   width: 100%;
@@ -257,7 +259,8 @@ ul.main li a.active {
 .categoriesContainer {
   width: 100%;
   font-size: 20px;
-  font-family: "Roboto", sans-serif;
+ font-family: 'Srisakdi', cursive;
+  font-family: 'Playfair Display', serif;
   
 }
 
@@ -292,7 +295,11 @@ ul.main li a.active {
   border: 1px solid transparent;
   border-bottom: 2px solid #f2f2f2;
   font-size: 25px;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Srisakdi', cursive;
+  font-family: 'Playfair Display', serif;
+}
+.recentBody{
+  padding: 10px;
 }
 
 .recentContainer{
@@ -302,7 +309,21 @@ ul.main li a.active {
 .recentImg{
   float: left;
   width: 50%;
+
 }
 .recentTitle{
   float: right;
+  padding: 5px;
+  font-family: 'Srisakdi', cursive;
+  font-family: 'Playfair Display', serif;
+  
 }
+ .recentBody a{
+  text-decoration: none;
+ }
+ .recentContainer .recentTitle:hover{
+  color: gray;
+ }
+ .recentContainer .recentImg:hover{
+  filter:grayscale(100%);
+ }
