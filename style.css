@@ -373,7 +373,7 @@ ul.main li a.active {
   width: 100%;
   padding: 30px;
   text-align: center;
-  background:rgb(46,139,87);
+  background: rgb(46, 139, 87);
   color: #fff;
   border-radius: 25px;
 }
@@ -411,3 +411,30 @@ ul.main li a.active {
   border-radius: 5px;
 }
 
+@media only screen and (max-width: 700px) {
+  .mainPage,
+  .pageOptions,
+  .pageRecentPosts,
+  .articles {
+    width: 100%;
+  }
+
+  .moreImages img {
+    max-height: 300px;
+  }
+  .mainImage .postImage {
+    max-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .mainImage .postImage {
+    max-height: 250px;
+  }
+  ul.main li {
+    display: block;
+  }
+  ul.main li a {
+    display: block;
+  }
+}
