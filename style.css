@@ -337,18 +337,29 @@ ul.main li a.active {
   filter: grayscale(100%);
 }
 .footer {
-  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1px;
   background-color: #000;
   text-align: center;
+  height: 100px;
+  position: relative;
+  display: block;
+  width: 100%;
+  clear: both;
+  box-sizing: border-box;
 }
 
 .footer .iconsFooter {
   width: 100%;
   padding: 5px;
+}
+.footer div a i{
+  width: 18px;
+}
+.footer .iconsFooter, .footer .creator{
+  box-sizing: border-box;
 }
 
 .footer .creator {
@@ -665,7 +676,8 @@ input[type="submit"]:hover {
 
 /* login page here */
 
-.loginBox, .contactBox {
+.loginBox,
+.contactBox {
   border: 5px solid #f2f2f2;
   padding: 50px;
   margin: 5px auto;
@@ -693,23 +705,24 @@ input[type="submit"]:hover {
   font-family: "Playfair Display", serif;
   outline: none;
 }
-.loginBox input:focus{
+.loginBox input:focus {
   width: 100%;
 }
-.more{
+.more {
   display: flex;
   justify-content: space-between;
   font-family: "Playfair Display", serif;
   margin: 10px;
 }
-.more div a:hover{
+.more div a:hover {
   color: red;
 }
-.forgotPass a, .signUp a{
+.forgotPass a,
+.signUp a {
   text-decoration: none;
   color: #808080;
 }
-.button{
+.button {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
@@ -719,49 +732,51 @@ input[type="submit"]:hover {
   color: #000;
   outline: none;
 }
-.button:hover{
+.button:hover {
   background-color: #333333;
   color: #fff;
 }
-.button a{
+.button a {
   text-decoration: none;
   font-size: 16px;
   color: #fff;
   font-family: "Playfair Display", serif;
 }
-.button i{
+.button i {
   padding: 5px;
 }
-.space{
+.space {
   padding: 25px;
 }
-.spaceEnd{
+.spaceEnd {
   padding: 10%;
 }
-.background, .background .space, .background .spaceEnd{
+.background,
+.background .space,
+.background .spaceEnd {
   background: #f2f2f2;
 }
-.cancel .cancelRef{
+.cancel .cancelRef {
   text-decoration: none;
 }
-.loginBox p{
+.loginBox p {
   font-size: 20px;
   color: #808080;
   font-family: "Playfair Display", serif;
 }
-.loginBox .forgotPass{
-text-align: center; 
+.loginBox .forgotPass {
+  text-align: center;
 }
-.cancel .cancelRef p{
+.cancel .cancelRef p {
   font-size: 20px;
   padding: 20px;
 }
-.btn.forgotPass{
+.btn.forgotPass {
   display: flex;
   margin: 10px auto;
   width: 30%;
 }
-.cancel .cancelRef p:hover{
+.cancel .cancelRef p:hover {
   color: red;
 }
 @media only screen and (max-width: 700px) {
@@ -794,14 +809,14 @@ text-align: center;
 
 /* contact page  */
 
-.contactBox h2{
+.contactBox h2 {
   font-size: 25px;
   color: #000;
   font-family: "Playfair Display", serif;
   text-align: center;
   padding: 20px;
 }
-.contactBox p{
+.contactBox p {
   font-size: 15px;
   color: #808080;
   font-family: "Playfair Display", serif;
