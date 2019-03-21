@@ -336,6 +336,35 @@ ul.main li a.active {
 .recentContainer .recentImg:hover {
   filter: grayscale(100%);
 }
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1px;
+  background-color: #000;
+  text-align: center;
+}
+
+.footer .iconsFooter {
+  width: 100%;
+  padding: 5px;
+}
+
+.footer .creator {
+  width: 100%;
+  padding: 5px;
+  font-size: 13px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+.iconsFooter a i {
+  color: #000;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
 
 /*  Style for post.html page here*/
 .mainImage {
@@ -348,6 +377,7 @@ ul.main li a.active {
   width: auto;
   height: 100%;
   max-height: 500px;
+  border-radius: 10px;
 }
 
 .postDetails {
@@ -371,7 +401,7 @@ ul.main li a.active {
 
 .authorPost i {
   margin-right: 5px;
-  color: red;
+  color: rgb(46, 139, 87);
 }
 
 .articles {
@@ -633,3 +663,148 @@ input[type="submit"]:hover {
   color: darkslategray;
 }
 
+/* login page here */
+
+.loginBox, .contactBox {
+  border: 5px solid #f2f2f2;
+  padding: 50px;
+  margin: 5px auto;
+  width: 30%;
+  height: 100%;
+  border-radius: 20px;
+  background: #fff;
+  border: 5px solid #e2e2e2;
+}
+.loginBox div p {
+  font-size: 40px;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+}
+.loginBox input {
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+  margin: 5px;
+  width: 100%;
+  height: 25px;
+  background: transparent;
+  padding: 5px;
+  border-radius: 10px;
+  font-family: "Playfair Display", serif;
+  outline: none;
+}
+.loginBox input:focus{
+  width: 100%;
+}
+.more{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Playfair Display", serif;
+  margin: 10px;
+}
+.more div a:hover{
+  color: red;
+}
+.forgotPass a, .signUp a{
+  text-decoration: none;
+  color: #808080;
+}
+.button{
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #57b846;
+  border-radius: 25px;
+  transition-duration: 0.5s;
+  color: #000;
+  outline: none;
+}
+.button:hover{
+  background-color: #333333;
+  color: #fff;
+}
+.button a{
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+}
+.button i{
+  padding: 5px;
+}
+.space{
+  padding: 25px;
+}
+.spaceEnd{
+  padding: 10%;
+}
+.background, .background .space, .background .spaceEnd{
+  background: #f2f2f2;
+}
+.cancel .cancelRef{
+  text-decoration: none;
+}
+.loginBox p{
+  font-size: 20px;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+}
+.loginBox .forgotPass{
+text-align: center; 
+}
+.cancel .cancelRef p{
+  font-size: 20px;
+  padding: 20px;
+}
+.btn.forgotPass{
+  display: flex;
+  margin: 10px auto;
+  width: 30%;
+}
+.cancel .cancelRef p:hover{
+  color: red;
+}
+@media only screen and (max-width: 700px) {
+  .mainPage,
+  .pageOptions,
+  .pageRecentPosts,
+  .articles {
+    width: 100%;
+  }
+
+  .moreImages img {
+    max-height: 300px;
+  }
+  .mainImage .postImage {
+    max-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .mainImage .postImage {
+    max-height: 250px;
+  }
+  ul.main li {
+    display: block;
+  }
+  ul.main li a {
+    display: block;
+  }
+}
+
+/* contact page  */
+
+.contactBox h2{
+  font-size: 25px;
+  color: #000;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  padding: 20px;
+}
+.contactBox p{
+  font-size: 15px;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+  padding: 5px;
+  text-align: center;
+}

@@ -49,64 +49,37 @@
       </nav>
       <article>
         <div class="main-title">
-          <span>Formular de inregistrare</span>
+          <span>Mi-am uitat parola</span>
         </div>
       </article>
     </header>
     <div class="background">
       <div class="space"></div>
-      <section class="loginBox">
-        <div class="firstName">
-          <p>
-            Nume
-          </p>
-          <input type="text" name="firstName" required placeholder="Nume" />
+      <div class="loginBox">
+        <p class="forgotPass">Poti reseta parola aici</p>
+        <input
+          type="text"
+          name="resetPass"
+          required
+          placeholder="Numarul de telefon"
+        />
+        <div class="btn forgotPass">
+          <button class="button" type="submit">
+            Trimite-mi parola
+          </button>
         </div>
-        <div class="Prenume">
-          <p>Prenume</p>
-          <input type="text" name="lastName" required placeholder="Prenume" />
-        </div>
-        <div class="email">
-          <p>
-            E-mail
-          </p>
-          <input type="text" name="email" required placeholder="E-mail" />
-        </div>
-        <div class="password">
-          <p>Parola</p>
-          <input type="password" name="pass" required placeholder="Parola" />
-        </div>
-        <div class="confPass">
-          <p>Confirma Parola</p>
-          <input
-            type="password"
-            name="confPass"
-            required
-            placeholder="Confirma parola"
-          />
-        </div>
-        <div class="phone">
-          <p>Telefon</p>
-          <input type="text" name="phone" placeholder="Telefon" required />
-        </div>
-        <div class="birthday">
-          <p>Zi de nastere</p>
-          <input type="date" name="date" required placeholder="Zi de nastere" />
-        </div>
-        <div class="country">
-          <p>Tara</p>
-          <input type="text" name="country" placeholder="Tara" required />
-        </div>
-        <div class="btn">
-          <a href="login.html">
-            <button class="button" type="button">
-              Inscrie-te
-              <i class="fas fa-arrow-right"></i>
-            </button>
+        <div class="cancel">
+          <a class="cancelRef" href="login.html">
+            <p>
+              <i class="fas fa-arrow-left"></i>Anuleaza si mergi inapoi la
+              pagina de Login
+            </p>
           </a>
         </div>
-      </section>
+      </div>
+      <div class="spaceEnd"></div>
     </div>
+
     <aside></aside>
     <!-- <footer class="footer">
       <div class="iconsFooter">
