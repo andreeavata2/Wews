@@ -229,8 +229,8 @@ ul.main li a.active {
 }
 .articleDescription {
   width: 100%;
-  padding: 10px 0;
-  font-size: 20 px;
+  padding: 10px 0px;
+  font-size: 20px;
   letter-spacing: 0.5px;
   font-family: "Roboto", sans-serif;
 }
