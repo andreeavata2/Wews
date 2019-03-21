@@ -443,7 +443,7 @@ ul.main li a.active {
 
 /* login page here */
 
-.loginBox {
+.loginBox, .contactBox {
   border: 5px solid #f2f2f2;
   padding: 50px;
   margin: 5px auto;
@@ -568,4 +568,21 @@ text-align: center;
   ul.main li a {
     display: block;
   }
+}
+
+/* contact page  */
+
+.contactBox h2{
+  font-size: 25px;
+  color: #000;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  padding: 20px;
+}
+.contactBox p{
+  font-size: 15px;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+  padding: 5px;
+  text-align: center;
 }
