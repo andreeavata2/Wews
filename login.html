@@ -16,12 +16,7 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Srisakdi"
-      href="https://fonts.googleapis.com/css?family=Playfair+Display|Srisakdi"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Arimo|Lora|Playfair+Display|Srisakdi"
+      href="https://fonts.googleapis.com/css?family=Playfair+Display"
       rel="stylesheet"
     />
 
@@ -58,16 +53,11 @@
       <form class="loginBox">
         <div class="username">
           <p>E-mail:</p>
-          <input type="text" name="username" required placeholder="E-mail" />
+          <input type="text" name="username" placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola:</p>
-          <input
-            type="password"
-            name="pass"
-            placeholder="Introduceti parola"
-            required
-          />
+          <input type="password" name="pass" placeholder="Introduceti parola" />
         </div>
         <div class="more">
           <div class="signUp">
@@ -83,11 +73,13 @@
         </div>
 
         <div class="btn">
-          <a href="index.html">
-            <button class="button" type="button">
-              Login
-            </button>
-          </a>
+          <button
+            class="button"
+            onclick="location.href='index.html'"
+            type="button"
+          >
+            Login
+          </button>
         </div>
       </form>
       <div class="spaceEnd"></div>
