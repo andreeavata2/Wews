@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -27,18 +27,18 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.html"><i class="fas fa-home"></i> Acasa</a>
+            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
           </li>
           <li>
-            <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
+            <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
-            <a class="active" href="login.html"
+            <a class="active" href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
           </li>
           <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
@@ -64,7 +64,7 @@
           </button>
         </div>
         <div class="cancel">
-          <a class="cancelRef" href="login.html">
+          <a class="cancelRef" href="login.php">
             <p>
               <i class="fas fa-arrow-left"></i>Anuleaza si mergi inapoi la
               pagina de Login

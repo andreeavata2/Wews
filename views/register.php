@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -27,18 +27,18 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.html"><i class="fas fa-home"></i> Acasa</a>
+            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
           </li>
           <li>
-            <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
+            <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
-            <a class="active" href="login.html"
+            <a class="active" href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
           </li>
           <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
@@ -48,6 +48,7 @@
         </div>
       </article>
     </header>
+    <form action="#" method="post">
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
@@ -55,51 +56,61 @@
           <p>
             Nume
           </p>
-          <input type="text" name="firstName" required placeholder="Nume" />
+          <input type="text" name="firstName" class="form-control" required placeholder="Nume" />
         </div>
         <div class="Prenume">
           <p>Prenume</p>
-          <input type="text" name="lastName" required placeholder="Prenume" />
+          <input type="text" name="lastName"  class="form-control" required placeholder="Prenume" />
         </div>
         <div class="email">
           <p>
             E-mail
           </p>
-          <input type="text" name="email" required placeholder="E-mail" />
+          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola</p>
-          <input type="password" name="pass" required placeholder="Parola" />
+          <input type="password" name="password" class="form-control" required placeholder="Parola" />
         </div>
         <div class="confPass">
           <p>Confirma Parola</p>
           <input
             type="password"
             name="confPass"
+            class="form-control"
             required
             placeholder="Confirma parola"
           />
         </div>
         <div class="phone">
           <p>Telefon</p>
-          <input type="text" name="phone" placeholder="Telefon" required />
+          <input type="text" name="phone" class="form-control" placeholder="Telefon" required />
         </div>
         <div class="birthday">
           <p>Zi de nastere</p>
+<<<<<<< HEAD:register.html
           <input type="date" name="date" />
+=======
+          <input type="date" name="date" class="form-control" />
+>>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/register.php
         </div>
         <div class="country">
           <p>Tara</p>
-          <input type="text" name="country" placeholder="Tara" required />
+          <input type="text" name="country" class="form-control" placeholder="Tara" required />
         </div>
         <div class="btn">
+<<<<<<< HEAD:register.html
           <button class="button" onclick="location.href='login.html'"  type="button">
+=======
+          <button class="button" type="submit">
+>>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/register.php
             Inscrie-te
             <i class="fas fa-arrow-right"></i>
           </button>
       </div>
       </section>
     </div>
+    </form>
     <aside></aside>
     <!-- <footer class="footer">
       <div class="iconsFooter">
@@ -117,3 +128,34 @@
     </footer> -->
   </body>
 </html>
+<?php
+session_start();
+
+$con = mysqli_connect('localhost','root');
+mysqli_select_db($con,'userregistration');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+$firstName = $_POST['firstName'];
+$lastName = $_POST['lastName'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$confPass = $_POST['confPass'];
+$phone = $_POST['phone'];
+$date = $_POST['date'];
+$country = $_POST['country'];
+
+$s = " select * from usertable where firstName = '$firstName' ";
+
+$result = mysqli_query($con, $s);
+
+$num = mysqli_num_rows($result);
+if( $num >= 1 ){
+  header('location:register.php');
+}else{
+    $reg = " insert into usertable(firstName, lastName, email, password, confPass,phone,date,country) values ('$firstName', '$lastName', '$email', '$password', '$confPass','$phone','$date','$country')";
+    mysqli_query($con, $reg);
+    header('location:index.php');
+}
+}
+?>

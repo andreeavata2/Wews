@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -31,20 +31,20 @@
           </div>
           <div class="nav-sidebar">
             <div class="siderbarElement">
-              <a class="active" href="user_profil.html"
+              <a class="active" href="user_profil.php"
                 ><i class="fas fa-user"></i> User Profil</a
               >
             </div>
             <div class="siderbarElement">
-              <a href="notificari.html"
+              <a href="notificari.php"
                 ><i class="fas fa-bell"></i>Notificari</a
               >
             </div>
             <div class="siderbarElement">
-              <a href="setari.html"> <i class="fas fa-cog"></i>Setari</a>
+              <a href="setari.php"> <i class="fas fa-cog"></i>Setari</a>
             </div>
             <div class="siderbarElement">
-              <a href="index.html">
+              <a href="logout.php">
                 <i class="fas fa-sign-out-alt"></i>Deconectare</a
               >
             </div>
@@ -56,13 +56,13 @@
           <nav>
             <ul class="main">
               <li>
-                <a href="index.html"><i class="fas fa-home"></i>Acasa</a>
+                <a href="index.php"><i class="fas fa-home"></i>Acasa</a>
               </li>
               <li>
-                <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
+                <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
               </li>
               <li>
-                <a class="active" href="user_profil.html">
+                <a class="active" href="user_profil.php">
                   <i class="fas fa-cog"></i>Cont</a
                 >
               </li>

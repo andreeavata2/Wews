@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -28,18 +28,18 @@
       <nav>
         <ul class="main">
           <li>
-            <a class="active" href="index.html"
+            <a class="active" href="index.php"
               ><i class="fas fa-home"></i> Acasa</a
             >
           </li>
           <li>
-            <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
+            <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
-            <a href="login.html"><i class="fas fa-user-circle"></i> Login</a>
+            <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
           <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
@@ -74,7 +74,7 @@
             <div class="articleButton">
               <button
                 class="btn normal"
-                onclick="location.href='post.html'"
+                onclick="location.href='post.php'"
                 type="button"
               >
                 Vezi mai multe
@@ -103,7 +103,7 @@
             <div class="articleButton">
               <button
                 class="btn normal"
-                onclick="location.href='post.html'"
+                onclick="location.href='post.php'"
                 type="button"
               >
                 Vezi mai multe
@@ -132,7 +132,7 @@
             <div class="articleButton">
               <button
                 class="btn normal"
-                onclick="location.href='post.html'"
+                onclick="location.href='post.php'"
                 type="button"
               >
                 Vezi mai multe
@@ -160,7 +160,7 @@
             <div class="articleButton">
               <button
                 class="btn normal"
-                onclick="location.href='post.html'"
+                onclick="location.href='post.php'"
                 type="button"
               >
                 Vezi mai multe
