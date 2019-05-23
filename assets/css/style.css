@@ -172,7 +172,7 @@ ul.main li a.active {
   float: left;
 }
 
-.main-title span {
+.main-title h1 {
   font-family: "Srisakdi", cursive;
   font-family: "Playfair Display", serif;
   font-size: 30px;

@@ -4,170 +4,117 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
       integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
       crossorigin="anonymous"
     />
+
     <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display"
+      href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
+    <link
+    href="https://fonts.googleapis.com/css?family=Playfair+Display"
+    rel="stylesheet"
+  />
 
     <title>Document</title>
   </head>
-
   <body>
     <header>
       <nav>
         <ul class="main">
           <li>
-            <a class="active" href="index.html"
-              ><i class="fas fa-home"></i> Acasa</a
-            >
+            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
+          </li>
+          <li><a href="contact.php"><i class="fas fa-bars"></i> Contact</a></li>
+          <li>
+            <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
           <li>
-            <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
-          </li>
-          <li>
-            <a href="login.html"><i class="fas fa-user-circle"></i> Login</a>
-          </li>
-          <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
       <article>
         <div class="main-title">
-          <span>Wews - News Web Manager</span>
+          <span> Wews - News Web Manager</span>
         </div>
       </article>
     </header>
-
     <article class="mainContainer">
-      <section class="mainPage">
-        <div class="articles">
-          <div class="articleContainer">
-            <div class="articleImg">
+        <section class="mainPostPage">
+            <div class="mainImage">
               <img
-                src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                alt="imgPost"
+                src="https://www.gftskills.com/wp-content/uploads/2012/09/7-Ways-Juggling-Makes-A-Soccer-Player-Better-FB.jpg"
+                alt="image"
+                class="postImage"
               />
             </div>
-            <div class="articleTitle">
-              <span>
-                The best title ever
-              </span>
+            <div class="postDetails">
+              <div class="authorPost">
+                  <i class="far fa-user"></i> <span>Autor</span>
+              </div>
+              <div class="authorPost">
+                  <i class="far fa-calendar-alt"></i> <span>10/10/1998</span>
+              </div>
+              <div class="authorPost">
+                  <i class="fas fa-hashtag"></i> <span>Muzica</span>
+              </div>
             </div>
-            <div class="articleDescription">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-              molestias delectus labore. Corrupti iure maiores minus esse soluta
-              a eius distinctio, eveniet magni.
+            
+            <div class="titlePost">
+              <p>Title Post</p>
             </div>
-            <div class="articleButton">
-              <button
-                class="btn normal"
-                onclick="location.href='post.html'"
-                type="button"
-              >
-                Vezi mai multe
-              </button>
+            <div class="descriptionPost">
+              <p>
+                <br />
+                <br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                corporis, architecto libero perspiciatis reiciendis, cupiditate
+                voluptatum quas doloremque dolores cumque, eveniet perferendis
+                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                corporis, architecto libero perspiciatis reiciendis, cupiditate
+                voluptatum quas doloremque dolores cumque, eveniet perferendis
+                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                corporis, architecto libero perspiciatis reiciendis, cupiditate
+                voluptatum quas doloremque dolores cumque, eveniet perferendis
+                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                corporis, architecto libero perspiciatis reiciendis, cupiditate
+                voluptatum quas doloremque dolores cumque, eveniet perferendis
+                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
+                corporis, architecto libero perspiciatis reiciendis, cupiditate
+                voluptatum quas doloremque dolores cumque, eveniet perferendis
+                itaque facilis magnam eaque commodi.
+                <br />
+                <br />
+                <br />
+                Facere, odit facilis. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsum corporis, architecto libero perspiciatis
+                reiciendis, cupiditate voluptatum quas doloremque dolores
+                cumque, eveniet perferendis itaque facilis magnam eaque commodi.
+                Facere, odit facilis. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Ipsum corporis, architecto libero perspiciatis
+                reiciendis, cupiditate voluptatum quas doloremque dolores
+                cumque, eveniet perferendis itaque facilis magnam eaque commodi.
+                Facere, odit facilis.
+              </p>
             </div>
-          </div>
-
-          <div class="articleContainer">
-            <div class="articleImg">
-              <img
-                src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                alt="imgPost"
-              />
+            <div class="moreImages">
+              <img src="https://via.placeholder.com/1000" alt="" />
+              <img src="https://via.placeholder.com/1000" alt="" />
+              <img src="https://via.placeholder.com/1000" alt="" />
+              <img src="https://via.placeholder.com/1000" alt="" />
+              <img src="https://via.placeholder.com/1000" alt="" />
             </div>
-            <div class="articleTitle">
-              <span>
-                The best title ever
-              </span>
-            </div>
-            <div class="articleDescription">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-              molestias delectus labore. Corrupti iure maiores minus esse soluta
-              a eius distinctio, eveniet magni.
-            </div>
-            <div class="articleButton">
-              <button
-                class="btn normal"
-                onclick="location.href='post.html'"
-                type="button"
-              >
-                Vezi mai multe
-              </button>
-            </div>
-          </div>
-
-          <div class="articleContainer">
-            <div class="articleImg">
-              <img
-                src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                alt="imgPost"
-              />
-            </div>
-            <div class="articleTitle">
-              <span>
-                The best title ever
-              </span>
-            </div>
-            <div class="articleDescription">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-              molestias delectus labore. Corrupti iure maiores minus esse soluta
-              a eius distinctio, eveniet magni.
-            </div>
-            <div class="articleButton">
-              <button
-                class="btn normal"
-                onclick="location.href='post.html'"
-                type="button"
-              >
-                Vezi mai multe
-              </button>
-            </div>
-          </div>
-          <div class="articleContainer">
-            <div class="articleImg">
-              <img
-                src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                alt="imgPost"
-              />
-            </div>
-            <div class="articleTitle">
-              <span>
-                The best title ever
-              </span>
-            </div>
-            <div class="articleDescription">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-              molestias delectus labore. Corrupti iure maiores minus esse soluta
-              a eius distinctio, eveniet magni.
-            </div>
-            <div class="articleButton">
-              <button
-                class="btn normal"
-                onclick="location.href='post.html'"
-                type="button"
-              >
-                Vezi mai multe
-              </button>
-            </div>
-          </div>
-        </div>
+        </section>
         <div class="pageOptions">
           <div class="categories">
             <div class="categoriesTitle">
@@ -242,7 +189,7 @@
             </div>
           </div>
         </div>
-
+        <!--------------Postari recente-------------->
         <div class="pageRecentPosts">
           <div class="recentPosts">
             <div class="recentTitlePosts">
@@ -300,20 +247,13 @@
             </div>
           </div>
         </div>
-      </section>
     </article>
     <aside></aside>
     <footer class="footer">
       <div class="iconsFooter">
-        <a href="https://www.facebook.com/andreea.vatamanelu"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
-        <a href="https://github.com/andreeavata2/Wews"
-          ><i class="fab fa-github"></i
-        ></a>
-        <a href="https://www.instagram.com/xranobi/"
-          ><i class="fab fa-instagram"></i
-        ></a>
+        <a href="https://www.facebook.com/andreea.vatamanelu"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://github.com/andreeavata2/Wews"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/xranobi/"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-google"></i></a>
         <a href="#"><i class="fab fa-youtube"></i></a>
       </div>

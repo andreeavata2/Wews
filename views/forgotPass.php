@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
@@ -16,12 +16,7 @@
       crossorigin="anonymous"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Srisakdi"
-      href="https://fonts.googleapis.com/css?family=Playfair+Display|Srisakdi"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Arimo|Lora|Playfair+Display|Srisakdi"
+      href="https://fonts.googleapis.com/css?family=Playfair+Display"
       rel="stylesheet"
     />
 
@@ -32,64 +27,51 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.html"><i class="fas fa-home"></i> Acasa</a>
+            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
           </li>
           <li>
-            <a href="contact.html"><i class="fas fa-bars"></i> Contact</a>
+            <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
-            <a class="active" href="login.html"
+            <a class="active" href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
           </li>
           <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
       <article>
         <div class="main-title">
-          <span>Login</span>
+          <span>Mi-am uitat parola</span>
         </div>
       </article>
     </header>
     <div class="background">
       <div class="space"></div>
-      <form class="loginBox">
-        <div class="username">
-          <p>E-mail:</p>
-          <input type="text" name="username" required placeholder="E-mail" />
+      <div class="loginBox">
+        <p class="forgotPass">Poti reseta parola aici</p>
+        <input
+          type="text"
+          name="resetPass"
+          required
+          placeholder="Numarul de telefon"
+        />
+        <div class="btn forgotPass">
+          <button class="button" type="submit">
+            Trimite-mi parola
+          </button>
         </div>
-        <div class="password">
-          <p>Parola:</p>
-          <input
-            type="password"
-            name="pass"
-            placeholder="Introduceti parola"
-            required
-          />
-        </div>
-        <div class="more">
-          <div class="signUp">
-            <a href="register.html">
-              Inscrie-te
-            </a>
-          </div>
-          <div class="forgotPass">
-            <a href="forgotPass.html" class="txt1">
-              Ti-ai uitat parola?
-            </a>
-          </div>
-        </div>
-
-        <div class="btn">
-          <a href="index.html">
-            <button class="button" type="button">
-              Login
-            </button>
+        <div class="cancel">
+          <a class="cancelRef" href="login.php">
+            <p>
+              <i class="fas fa-arrow-left"></i>Anuleaza si mergi inapoi la
+              pagina de Login
+            </p>
           </a>
         </div>
-      </form>
+      </div>
       <div class="spaceEnd"></div>
     </div>
 

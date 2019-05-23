@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display|Srisakdi"
+      href="https://fonts.googleapis.com/css?family=Playfair+Display"
       rel="stylesheet"
     />
 
@@ -28,18 +28,18 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.html"><i class="fas fa-home"></i> Acasa</a>
+            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
           </li>
           <li>
-            <a class="active" href="contact.html"
+            <a class="active" href="contact.php"
               ><i class="fas fa-bars"></i> Contact</a
             >
           </li>
           <li>
-            <a href="login.html"><i class="fas fa-user-circle"></i> Login</a>
+            <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
           <li>
-            <a href="user_profil.html"> <i class="fas fa-cog"></i>Cont</a>
+            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
