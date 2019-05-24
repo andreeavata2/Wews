@@ -1,1 +1,3 @@
-<?php header("Location: $_SERVER[REQUEST_URI]/views"); ?>
+<?php
+
+header("Location: $_SERVER[REQUEST_URI]/views"); ?>
