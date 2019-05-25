@@ -1,3 +1,12 @@
+<?php 
+
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignUp(); //  static function
+    // $auth  = new AuthController();
+    // $auth->SignUp(); // fara static
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,7 +75,7 @@
           <p>
             E-mail
           </p>
-          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
+          <input type="email" name="email" class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola</p>
@@ -88,22 +97,14 @@
         </div>
         <div class="birthday">
           <p>Zi de nastere</p>
-<<<<<<< HEAD:register.html
-          <input type="date" name="date" />
-=======
           <input type="date" name="date" class="form-control" />
->>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/register.php
         </div>
         <div class="country">
           <p>Tara</p>
           <input type="text" name="country" class="form-control" placeholder="Tara" required />
         </div>
         <div class="btn">
-<<<<<<< HEAD:register.html
-          <button class="button" onclick="location.href='login.html'"  type="button">
-=======
           <button class="button" type="submit">
->>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/register.php
             Inscrie-te
             <i class="fas fa-arrow-right"></i>
           </button>
@@ -128,34 +129,3 @@
     </footer> -->
   </body>
 </html>
-<?php
-session_start();
-
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'userregistration');
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-$confPass = $_POST['confPass'];
-$phone = $_POST['phone'];
-$date = $_POST['date'];
-$country = $_POST['country'];
-
-$s = " select * from usertable where firstName = '$firstName' ";
-
-$result = mysqli_query($con, $s);
-
-$num = mysqli_num_rows($result);
-if( $num >= 1 ){
-  header('location:register.php');
-}else{
-    $reg = " insert into usertable(firstName, lastName, email, password, confPass,phone,date,country) values ('$firstName', '$lastName', '$email', '$password', '$confPass','$phone','$date','$country')";
-    mysqli_query($con, $reg);
-    header('location:index.php');
-}
-}
-?>

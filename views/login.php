@@ -1,90 +1,134 @@
+<?php
+require_once 'checkRoutes.php';
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'noacces':
+            $mess = 'Te rugam sa te logezi.';
+
+    }
+}
+if(isset($_GET['success'])){
+  switch ($_GET['success']) {
+    case 'accountCreated':
+        $mess = 'Cont creat cu succes.Te rugam sa te logezi.s
+        ';
+
+}
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/style.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Playfair+Display"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
     <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul class="main">
-          <li>
-            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
-          </li>
-          <li>
-            <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
-          </li>
-          <li>
-            <a class="active" href="login.php"
-              ><i class="fas fa-user-circle"></i> Login</a
-            >
-          </li>
-          <li>
-            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
-          </li>
-        </ul>
-      </nav>
-      <article>
-        <div class="main-title">
-          <span>Login</span>
-        </div>
-      </article>
-    </header>
-    <form action="#" method="post">
-    <div class="background">
-      <div class="space"></div>
-      <div class="loginBox">
-        <div class="username">
-          <p>E-mail:</p>
-          <input type="text" name="email"  class="form-control" required placeholder="E-mail" />
-        </div>
-        <div class="password">
-          <p>Parola:</p>
-          <input type="password" name="password" class="form-control" required placeholder="Introduceti parola" />
-        </div>
-        <div class="more">
-          <div class="signUp">
-            <a href="register.php">
-              Inscrie-te
-            </a>
-          </div>
-          <div class="forgotPass">
-            <a href="forgotPass.php" class="txt1">
-              Ti-ai uitat parola?
-            </a>
-          </div>
-        </div>
+</head>
 
-        <div class="btn">
-          <button
-            class="button"
-            type="submit"
-          >
-            Login
-          </button>
+<body>
+    <header>
+        <nav>
+            <ul class="main">
+                <li>
+                    <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
+                </li>
+                <li>
+                    <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
+                </li>
+                <?php
+if ($isLogged) {
+    echo '
+              <li>
+                  <a href="logout.php"><i class="fas fa-user-circle"></i> Logout</a>
+              </li>
+              <li>
+                <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
+               </li>
+              ';
+} else {
+    echo '
+              <li>
+              <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
+          </li>
+              ';
+}
+?>
+
+            </ul>
+        </nav>
+        <article>
+            <div class="main-title">
+                <span>Login</span>
+            </div>
+        </article>
+    </header>
+    <!-- <form action="#" method="post">
+        <input type="text" name="email"   placeholder="E-mail" >
+        <input type="password" name="password"  placeholder="Introduceti parola" >
+        <input type="submit">
+    </form> -->
+    <!-- <form action="login.php" method="post">
+        Name: <input type="text" name="name"><br>
+        E-mail: <input type="text" name="email"><br>
+        <input type="submit">
+    </form> -->
+    <form action="#" method="post">
+        <div class="background">
+            <div class="space"></div>
+            <div class="loginBox">
+                <div class="username">
+                    <p>E-mail:</p>
+                    <input type="text" name="email" class="form-control" required placeholder="E-mail" />
+                </div>
+                <div class="password">
+                    <p>Parola:</p>
+                    <input type="password" name="password" class="form-control" required
+                        placeholder="Introduceti parola" />
+                </div>
+                <div class="more">
+                    <div class="signUp">
+                        <a href="register.php">
+                            Inscrie-te
+                        </a>
+                    </div>
+                    <div class="forgotPass">
+                        <a href="forgotPass.php" class="txt1">
+                            Ti-ai uitat parola?
+                        </a>
+                    </div>
+                </div>
+
+                <div class="btn">
+                    <button class="button" type="submit">
+                        Login
+                    </button>
+                </div>
+                <div style=" <?php
+echo $error === '' ? 'none' : 'block';
+?>" class="message">
+                    <span>
+                        <?php
+echo $mess;
+?>
+                    </span>
+                </div>
+            </div>
+            <div class="spaceEnd"></div>
         </div>
-      </div>
-      <div class="spaceEnd"></div>
-    </div>
     </form>
+
 
     <aside></aside>
     <!-- <footer class="footer">
@@ -101,31 +145,12 @@
         </p>
       </div>
     </footer> -->
-  </body>
+</body>
+
 </html>
 <?php
-session_start();
-
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'userregistration');
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-$email = $_POST['email'];
-$password = $_POST['password'];
-
-$s = " select * from usertable where email = '$email' && password = '$password' ";
-
-$result = mysqli_query($con, $s);
-
-$num = mysqli_num_rows($result);
-
-if( $num == 1 ){
-  header('location:index.php');
-}else{
-  header('location:login.php');
-}
-}else{
-  echo 'noooo';
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignIn();
 }
 ?>

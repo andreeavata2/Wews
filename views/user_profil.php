@@ -1,3 +1,17 @@
+<?php 
+require_once 'checkRoutes.php';
+if(!$isLogged){
+  header('Location:/Wews/views/login.php?error=noacces');
+}
+
+require_once '../controllers/AccountController.php';
+$userInfo = AccountController::getUserInfo($_SESSION['id_user']);
+
+// create form with save btn
+// create method in controller 'updateUserInfo'
+// create update model method
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -81,6 +95,7 @@
                   type="text"
                   id="fname"
                   name="firstname"
+                  value="<?php echo $userInfo['firstName']; ?>"
                   placeholder="Numele tau..."
                 />
 
@@ -89,6 +104,7 @@
                   type="text"
                   id="lname"
                   name="lastname"
+                  value="<?php echo $userInfo['lastName']; ?>"
                   placeholder="Prenumele tau..."
                 />
 
@@ -97,6 +113,7 @@
                   type="text"
                   id="email"
                   name="email"
+                  value="<?php echo $userInfo['email']; ?>"
                   placeholder="E-mail-ul tau..."
                 />
 
@@ -105,11 +122,12 @@
                   type="text"
                   id="number"
                   name="phonenumber"
+                  value="<?php echo $userInfo['phone']; ?>"
                   placeholder="Telefonul tau..."
                 />
 
                 <label for="country">Tara</label>
-                <select id="country" name="country">
+                <select id="country" name="country" value="<?php echo $userInfo['country']; ?>">
                   <option value="romania">Romania</option>
                   <option value="canada">Canada</option>
                   <option value="usa">USA</option>
@@ -117,7 +135,7 @@
 
                 <label for="birthday">Zi de nastere</label>
 
-                <input type="date" id="birthday" name="birthday-user" />
+                <input type="date" id="birthday" name="birthday-user"   value="<?php echo $userInfo['DOB']; ?>" />
               </form>
             </div>
           </div>

@@ -1,10 +1,13 @@
 <?php
 
-class Model {
+require_once '../views/config.php';
+class Model
+{
 
     public $connection = null;
 
-    function __construct() {
+    public function __construct()
+    {
         try {
             $this->connect();
         } catch (\PDOException $exc) {
@@ -12,8 +15,10 @@ class Model {
         }
     }
 
-    private function connect() {
+    private function connect()
+    {
         $connection_string = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';';
         $this->connection = new PDO($connection_string, DB_USER, DB_PASS);
     }
 }
+?>
