@@ -13,11 +13,9 @@ if (isset($_GET['error'])) {
 if(isset($_GET['success'])){
   switch ($_GET['success']) {
     case 'accountCreated':
-        $mess = 'Cont creat cu succes.Te rugam sa te logezi.s
-        ';
+        $mess = 'Cont creat cu succes.Te rugam sa te logezi.';
 
 }
-
 }
 ?>
 
@@ -47,24 +45,22 @@ if(isset($_GET['success'])){
                 <li>
                     <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
                 </li>
-                <?php
-if ($isLogged) {
-    echo '
+                <?php if ($isLogged) { 
+                    echo '
               <li>
                   <a href="logout.php"><i class="fas fa-user-circle"></i> Logout</a>
               </li>
               <li>
                 <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
                </li>
-              ';
-} else {
-    echo '
+              '; } else {
+                  echo '
               <li>
               <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
               ';
-}
-?>
+            }
+            ?>
 
             </ul>
         </nav>
@@ -84,7 +80,7 @@ if ($isLogged) {
         E-mail: <input type="text" name="email"><br>
         <input type="submit">
     </form> -->
-    <form action="#" method="post">
+    <form action="" method="post">
         <div class="background">
             <div class="space"></div>
             <div class="loginBox">
@@ -115,15 +111,14 @@ if ($isLogged) {
                         Login
                     </button>
                 </div>
-                <div style=" <?php
-echo $error === '' ? 'none' : 'block';
-?>" class="message">
+                <?php  
+                require_once 'popup-success.php'; 
+                ?>
+                <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
                     <span>
-                        <?php
-echo $mess;
-?>
-                    </span>
-                </div>
+                        <?php echo $mess; ?>
+                  </span>
+                 </div> -->
             </div>
             <div class="spaceEnd"></div>
         </div>

@@ -7,7 +7,13 @@ if(!$isLogged){
 require_once '../controllers/AccountController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::getCategories();
+    AccountController::getTheme();
 }
+
+// $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
+$arrayOfCategories = AccountController::getUserCategories();
+$userInfo = AccountController::getUserInfo($_SESSION['id_user']);
+
 
 ?>
 <!DOCTYPE html>
@@ -26,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Setari</title>
 </head>
 
-<body>
+<body class="<?php echo $theme; ?>">
     <div class="mainDashboard">
         <div class="siderbar">
             <div class="siderbar-mainDashbord">
@@ -68,35 +74,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </ul>
                 </nav>
             </header>
-            <form action="#" method="post">
+            <form action="" method="post">
                 <div class="setting-box">
                     <div class="checkbox">
                         <div class="checkbox-title">
                             Categorii:
                         </div>
-                        <input type="checkbox" name="categorie[]" value="Tehnologie" />
+                        <input type="checkbox" name="categorie[]" value="Tehnologie" <?php if(in_array('Tehnologie',$arrayOfCategories)) echo 'checked'; ?>  />
                         Tehnologie<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Stiinta" />
+                        <input type="checkbox" name="categorie[]" value="Stiinta" <?php if(in_array('Stiinta',$arrayOfCategories)) echo 'checked'; ?>  />
                         Stiinta<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Politica" />
+                        <input type="checkbox" name="categorie[]" value="Politica" <?php if(in_array('Politica',$arrayOfCategories)) echo 'checked'; ?>  />
                         Politica<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Sport" checked />
+                        <input type="checkbox" name="categorie[]" value="Sport" <?php if(in_array('Sport',$arrayOfCategories)) echo 'checked'; ?> />
                         Sport<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Social" checked />
+                        <input type="checkbox" name="categorie[]" value="Social" <?php if(in_array('Social',$arrayOfCategories)) echo 'checked'; ?>  />
                         Social<br /><br />
                         <input type="submit" value="Submit" />
                     </div>
-            </form>
-            <div class="theme">
-                <div class="theme-title">
-                    Teme:
+                    <div class="theme">
+                        <div class="theme-title">
+                            Teme:
+                        </div>
+                        <input type="radio" name="theme" value="white" <?php if($userInfo['theme'] === 'white') { echo 'checked'; } ?>/> White<br />
+                        <input type="radio" name="theme" value="dark"  <?php if($userInfo['theme'] === 'dark') { echo 'checked'; } ?>/> Dark<br />
+                        <input type="submit" value="Submit" />
+                    </div>
                 </div>
-                <input type="radio" name="theme" value="white" /> White<br />
-                <input type="radio" name="theme" value="dark" /> Dark<br />
-                <input type="radio" name="theme" value="other" /> Other
-            </div>
+            </form>
         </div>
-    </div>
     </div>
 </body>
 

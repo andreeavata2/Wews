@@ -18,7 +18,7 @@ require_once 'checkRoutes.php';
     <title>Document</title>
 </head>
 
-<body>
+<body class="<?php echo $theme; ?>">
     <header>
         <nav>
             <ul class="main">

@@ -73,7 +73,38 @@ class AccountController
         $AuthModel = new AuthModel();
         return $AuthModel->getUserInfoFromDB($id);
     }
-    public static function getCategories()
+
+    public static function updateUserInfo($id){
+
+            require_once '../models/AuthModel.php';
+            $firstName = AccountController::clearData($_POST['firstName']);
+            $lastName = AccountController::clearData($_POST['lastName']);
+            $email = AccountController::clearData($_POST['email']);
+            $phone = AccountController::clearData($_POST['phone']);
+            $DOB = AccountController::clearData($_POST['DOB']);
+            $country = AccountController::clearData($_POST['country']);
+            // echo $firstName.$lastName.$email.$phone.$DOB.$country;
+
+            $AuthModel = new AuthModel();
+            $res = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
+            echo $res ?  
+            header("Location:/Wews/views/user_profil.php?successfullUpdated=true") 
+            : 
+            header("Location:/Wews/views/user_profil.php?succes=$res");
+
+    }
+
+    
+
+    public static function getUserCategories(){ //  getCateroies
+        if(isset($_SESSION['id_user'])){
+            $user = AccountController::getUserInfo($_SESSION['id_user']);
+            $categories = $user['categories'];
+            return explode('[-=-]',$categories); 
+        }   
+    }
+
+    public static function getCategories() // change to set
     {
         if(isset($_POST['categorie'])){
             $categories = $_POST['categorie'];
@@ -97,6 +128,21 @@ class AccountController
 
         header("Location:/Wews/views/setari.php?success=categoriiONN");
 
+        }
+    }
+    
+    public static function getTheme() //settheme
+    {
+        if (isset($_POST["theme"])) {
+            require_once '../models/AuthModel.php';
+            $theme = AccountController::clearData($_POST["theme"]);
+            $AuthModel = new AuthModel();
+            $res = $AuthModel->setThemeInDb($theme);
+            $res === false ? 
+            header("Location:/Wews/views/setari.php?error=themeOff")
+            : 
+
+            header("Location:/Wews/views/setari.php?success=themeOn");
         }
     }
 }
