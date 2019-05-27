@@ -27,18 +27,12 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
-          </li>
-          <li>
             <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
             <a class="active" href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
-          </li>
-          <li>
-            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
@@ -54,19 +48,11 @@
       <div class="loginBox">
         <div class="username">
           <p>E-mail:</p>
-<<<<<<< HEAD:login.html
-          <input type="text" name="username" placeholder="E-mail" />
-        </div>
-        <div class="password">
-          <p>Parola:</p>
-          <input type="password" name="pass" placeholder="Introduceti parola" />
-=======
           <input type="text" name="email"  class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola:</p>
           <input type="password" name="password" class="form-control" required placeholder="Introduceti parola" />
->>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/login.php
         </div>
         <div class="more">
           <div class="signUp">
@@ -84,12 +70,7 @@
         <div class="btn">
           <button
             class="button"
-<<<<<<< HEAD:login.html
-            onclick="location.href='index.html'"
-            type="button"
-=======
             type="submit"
->>>>>>> ae5ac2cc9c32eb465f2ba7ef70aed3fea1bdfb28:views/login.php
           >
             Login
           </button>

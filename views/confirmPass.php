@@ -38,65 +38,42 @@
       </nav>
       <article>
         <div class="main-title">
-          <span>Formular de inregistrare</span>
+          <span>Mi-am uitat parola</span>
         </div>
       </article>
     </header>
     <form action="#" method="post">
     <div class="background">
       <div class="space"></div>
-      <section class="loginBox">
-        <div class="firstName">
-          <p>
-            Nume
-          </p>
-          <input type="text" name="firstName" class="form-control" required placeholder="Nume" />
-        </div>
-        <div class="Prenume">
-          <p>Prenume</p>
-          <input type="text" name="lastName"  class="form-control" required placeholder="Prenume" />
-        </div>
-        <div class="email">
-          <p>
-            E-mail
-          </p>
-          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
-        </div>
-        <div class="password">
-          <p>Parola</p>
-          <input type="password" name="password" class="form-control" required placeholder="Parola" />
-        </div>
-        <div class="confPass">
-          <p>Confirma Parola</p>
-          <input
-            type="password"
-            name="confPass"
-            class="form-control"
-            required
-            placeholder="Confirma parola"
-          />
-        </div>
-        <div class="phone">
-          <p>Telefon</p>
-          <input type="text" name="phone" class="form-control" placeholder="Telefon" required />
-        </div>
-        <div class="birthday">
-          <p>Zi de nastere</p>
-          <input type="date" name="date" class="form-control" />
-        </div>
-        <div class="country">
-          <p>Tara</p>
-          <input type="text" name="country" class="form-control" placeholder="Tara" required />
-        </div>
-        <div class="btn">
+      <div class="loginBox">
+        <input
+          type="text"
+          name="email"
+          required
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Parola noua"
+        />
+        <input
+          type="password"
+          name="confirmPass"
+          required
+          placeholder="Confirma parola"
+        />
+        <div class="btn forgotPass">
           <button class="button" type="submit">
-            Inscrie-te
-            <i class="fas fa-arrow-right"></i>
+            Reseteaza parola
           </button>
+        </div>
       </div>
-      </section>
+      <div class="spaceEnd"></div>
     </div>
     </form>
+
     <aside></aside>
     <!-- <footer class="footer">
       <div class="iconsFooter">
@@ -114,6 +91,7 @@
     </footer> -->
   </body>
 </html>
+
 <?php
 session_start();
 
@@ -122,26 +100,23 @@ mysqli_select_db($con,'userregistration');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
 $email = $_POST['email'];
 $password = $_POST['password'];
-// $confPass = $_POST['confPass'];
-$phone = $_POST['phone'];
-$date = $_POST['date'];
-$country = $_POST['country'];
+$confirmPass = $_POST['confirmPass'];
 
 $s = " select * from usertable where email = '$email' ";
 
 $result = mysqli_query($con, $s);
 
 $num = mysqli_num_rows($result);
-if( $num >= 1 ){
-  header('location:register.php');
+
+if( $num == 1 && $password == $confirmPass ){
+  $sql = "UPDATE usertable SET password ='$password' WHERE email= '$email' ";
+  $result2 = mysqli_query($con, $sql);
+  $num2 = mysqli_num_rows($result2);
+  header('location:login.php');
 }else{
-    $reg = " insert into usertable(firstName, lastName, email, password,phone,date,country) values ('$firstName', '$lastName', '$email', '$password','$phone','$date','$country')";
-    mysqli_query($con, $reg);
-    header('location:index.php');
+  header('location:confirmPass.php');
 }
 }
 ?>
