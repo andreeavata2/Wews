@@ -1,3 +1,6 @@
+<?php 
+require_once 'checkRoutes.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,12 +38,25 @@
               ><i class="fas fa-bars"></i> Contact</a
             >
           </li>
-          <li>
-            <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
+          <?php
+            if($isLogged){
+              echo '
+              <li>
+                  <a href="logout.php"><i class="fas fa-user-circle"></i> Logout</a>
+              </li>
+              <li>
+                <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
+               </li>
+              ';
+            }else{
+              echo '
+              <li>
+              <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
-          <li>
-            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
-          </li>
+              ';
+            }
+          ?>
+
         </ul>
       </nav>
       <article>

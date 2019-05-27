@@ -571,6 +571,11 @@ ul.main li a.active {
 
   color: white;
 }
+/* tema dark */
+body.dark .theme-title {
+  color: white;
+  background: #000;
+}
 
 .setting-box {
   float: left;
@@ -601,6 +606,7 @@ textarea,
   border: none;
   border-radius: 4px;
   cursor: pointer;
+
 }
 
 .container-profil input[type="submit"]:hover {
@@ -798,6 +804,11 @@ textarea,
 }
 .cancel .cancelRef p:hover {
   color: red;
+}
+
+body.dark {
+  color: white;
+  background: #000;
 }
 @media only screen and (max-width: 700px) {
   .mainPage,

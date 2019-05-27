@@ -1,3 +1,12 @@
+<?php 
+
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignUp(); //  static function
+    // $auth  = new AuthController();
+    // $auth->SignUp(); // fara static
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,7 +69,7 @@
           <p>
             E-mail
           </p>
-          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
+          <input type="email" name="email" class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola</p>
@@ -114,34 +123,3 @@
     </footer> -->
   </body>
 </html>
-<?php
-session_start();
-
-$con = mysqli_connect('localhost','root');
-mysqli_select_db($con,'userregistration');
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST')
-{
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$email = $_POST['email'];
-$password = $_POST['password'];
-// $confPass = $_POST['confPass'];
-$phone = $_POST['phone'];
-$date = $_POST['date'];
-$country = $_POST['country'];
-
-$s = " select * from usertable where email = '$email' ";
-
-$result = mysqli_query($con, $s);
-
-$num = mysqli_num_rows($result);
-if( $num >= 1 ){
-  header('location:register.php');
-}else{
-    $reg = " insert into usertable(firstName, lastName, email, password,phone,date,country) values ('$firstName', '$lastName', '$email', '$password','$phone','$date','$country')";
-    mysqli_query($con, $reg);
-    header('location:index.php');
-}
-}
-?>

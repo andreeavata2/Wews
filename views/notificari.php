@@ -1,3 +1,9 @@
+<?php 
+require_once 'checkRoutes.php';
+if(!$isLogged){
+  header('Location:/Wews/views/login.php?error=noacces');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
