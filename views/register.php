@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <header>
       <nav>
         <ul class="main">
-        <li>
+          <li>
             <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
           </li>
           <li>
