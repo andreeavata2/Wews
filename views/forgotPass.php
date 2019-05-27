@@ -27,18 +27,12 @@
       <nav>
         <ul class="main">
           <li>
-            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
-          </li>
-          <li>
             <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
             <a class="active" href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
-          </li>
-          <li>
-            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
           </li>
         </ul>
       </nav>
@@ -48,25 +42,26 @@
         </div>
       </article>
     </header>
+    <form action="#" method="post">
     <div class="background">
       <div class="space"></div>
       <div class="loginBox">
-        <p class="forgotPass">Poti reseta parola aici</p>
+        <p class="forgotPass">Poti reseta parola aici:</p>
         <input
           type="text"
           name="resetPass"
           required
-          placeholder="Numarul de telefon"
+          placeholder="Email"
         />
         <div class="btn forgotPass">
           <button class="button" type="submit">
-            Trimite-mi parola
+            Reseteaza parola
           </button>
         </div>
         <div class="cancel">
           <a class="cancelRef" href="login.php">
             <p>
-              <i class="fas fa-arrow-left"></i>Anuleaza si mergi inapoi la
+              <i class="fas fa-arrow-left"></i>  Anuleaza si mergi inapoi la
               pagina de Login
             </p>
           </a>
@@ -74,6 +69,7 @@
       </div>
       <div class="spaceEnd"></div>
     </div>
+    </form>
 
     <aside></aside>
     <!-- <footer class="footer">
@@ -92,3 +88,28 @@
     </footer> -->
   </body>
 </html>
+
+<?php
+session_start();
+
+$con = mysqli_connect('localhost','root');
+mysqli_select_db($con,'userregistration');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+$email = $_POST['resetPass'];
+
+$s = " select * from usertable where email = '$email' ";
+
+$result = mysqli_query($con, $s);
+
+$num = mysqli_num_rows($result);
+
+if( $num == 1 ){
+  header('location:confirmPass.php');
+}else{
+  header('location:forgotPass.php');
+}
+}
+?>
+

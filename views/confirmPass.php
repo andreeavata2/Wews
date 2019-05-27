@@ -1,12 +1,3 @@
-<?php 
-
-require_once '../controllers/AccountController.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    AccountController::SignUp(); //  static function
-    // $auth  = new AuthController();
-    // $auth->SignUp(); // fara static
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,9 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <nav>
         <ul class="main">
           <li>
-            <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
-          </li>
-          <li>
             <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
@@ -50,65 +38,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </nav>
       <article>
         <div class="main-title">
-          <span>Formular de inregistrare</span>
+          <span>Mi-am uitat parola</span>
         </div>
       </article>
     </header>
     <form action="#" method="post">
     <div class="background">
       <div class="space"></div>
-      <section class="loginBox">
-        <div class="firstName">
-          <p>
-            Nume
-          </p>
-          <input type="text" name="firstName" class="form-control" required placeholder="Nume" />
-        </div>
-        <div class="Prenume">
-          <p>Prenume</p>
-          <input type="text" name="lastName"  class="form-control" required placeholder="Prenume" />
-        </div>
-        <div class="email">
-          <p>
-            E-mail
-          </p>
-          <input type="email" name="email" class="form-control" required placeholder="E-mail" />
-        </div>
-        <div class="password">
-          <p>Parola</p>
-          <input type="password" name="password" class="form-control" required placeholder="Parola" />
-        </div>
-        <div class="confPass">
-          <p>Confirma Parola</p>
-          <input
-            type="password"
-            name="confPass"
-            class="form-control"
-            required
-            placeholder="Confirma parola"
-          />
-        </div>
-        <div class="phone">
-          <p>Telefon</p>
-          <input type="text" name="phone" class="form-control" placeholder="Telefon" required />
-        </div>
-        <div class="birthday">
-          <p>Zi de nastere</p>
-          <input type="date" name="date" class="form-control" />
-        </div>
-        <div class="country">
-          <p>Tara</p>
-          <input type="text" name="country" class="form-control" placeholder="Tara" required />
-        </div>
-        <div class="btn">
+      <div class="loginBox">
+        <input
+          type="text"
+          name="email"
+          required
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Parola noua"
+        />
+        <input
+          type="password"
+          name="confirmPass"
+          required
+          placeholder="Confirma parola"
+        />
+        <div class="btn forgotPass">
           <button class="button" type="submit">
-            Inscrie-te
-            <i class="fas fa-arrow-right"></i>
+            Reseteaza parola
           </button>
+        </div>
       </div>
-      </section>
+      <div class="spaceEnd"></div>
     </div>
     </form>
+
     <aside></aside>
     <!-- <footer class="footer">
       <div class="iconsFooter">
@@ -126,3 +91,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </footer> -->
   </body>
 </html>
+
+<?php
+session_start();
+
+$con = mysqli_connect('localhost','root');
+mysqli_select_db($con,'userregistration');
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+$email = $_POST['email'];
+$password = $_POST['password'];
+$confirmPass = $_POST['confirmPass'];
+
+$s = " select * from usertable where email = '$email' ";
+
+$result = mysqli_query($con, $s);
+
+$num = mysqli_num_rows($result);
+
+if( $num == 1 && $password == $confirmPass ){
+  $sql = "UPDATE usertable SET password ='$password' WHERE email= '$email' ";
+  $result2 = mysqli_query($con, $sql);
+  $num2 = mysqli_num_rows($result2);
+  header('location:login.php');
+}else{
+  header('location:confirmPass.php');
+}
+}
+?>
