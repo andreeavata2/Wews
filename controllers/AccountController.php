@@ -11,23 +11,29 @@ class AccountController
     public static function SignIn()
     {
         if (isset($_POST['email'])) {
+          if(isset($_POST['password'])){
             require_once '../models/AuthModel.php';
             $email = $_POST['email'];
             $password = $_POST['password'];
             $AuthModel = new AuthModel();
             $res = $AuthModel->getUserbyEmail($email);
             if ($res === false) {
-                header("Location:/Wews/views/login.php?login=false");
+                header("Location:/Wews/views/login.php?error=false");
             } else {
                 if ($res['password'] === $password) {
                     $_SESSION['email'] = $email;
                     $_SESSION['id_user'] = $res['id_user'];
                     $_SESSION['name'] = $res['firstName'] . ' ' . $res['lastName'];
                     // echo $_SESSION['email'];
+                    // header("Location:/Wews/views/index.php");
                     header('Location:/Wews/views/index.php?login=true');
                 }
 
             }
+          }
+          else{
+            header("Location:/Wews/views/login.php?error=emailNotValid");
+          }
         } else {
             header("Location:/Wews/views/login.php?error=emailNotValid");
         }
@@ -39,6 +45,7 @@ class AccountController
         $str = htmlspecialchars($str);
         return $str;
     }
+    
     public static function SignUp()
     {
         if (isset($_POST['email'])) {
@@ -55,18 +62,30 @@ class AccountController
             // echo $firstName.$lastName.$email.$password.$confPass.$phone.$date.$country;
 
             $AuthModel = new AuthModel();
-            $res = $AuthModel->addNewUser($firstName,$lastName,$email,$password,$phone,$date,$country);
-            echo $res;
-            
-            echo $res === false ? 
-             'false'
-            : 
+            $res = $AuthModel->userExisting($email);
+        if($res==false){
+            $res2 = $AuthModel->addNewUser($firstName,$lastName,$email,$password,$phone,$date,$country);
+            echo $res2;
             header("Location:/Wews/views/login.php?success=accountCreated");
         } else {
-            header("Location:/Wews/views/login.php?error=emailNotValid");
+            header("Location:/Wews/views/register.php?error=emailIsAllreadyExist");
         }
 
+
+
+        //     $res = $AuthModel->addNewUser($firstName,$lastName,$email,$password,$phone,$date,$country);
+        //     echo $res;
+            
+        //     echo $res === false ? 
+        //      'false'
+        //     : 
+        //     header("Location:/Wews/views/login.php?success=accountCreated");
+        // } else {
+        //     header("Location:/Wews/views/login.php?error=emailNotValid");
+        // }
+
     }
+}
     public static function getUserInfo($id){
         require_once '../models/AuthModel.php';
         $AuthModel = new AuthModel();

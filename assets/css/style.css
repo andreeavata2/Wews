@@ -575,7 +575,7 @@ ul.main li a.active {
   border-radius: 3px;
 }
 
-input[type="radio"] {
+.container-profil input[type="radio"] {
   margin: 10px;
 }
 .theme-title {
@@ -598,10 +598,10 @@ input[type="radio"] {
   flex-wrap: wrap;
 }
 
-input[type="text"],
+.container-profil input[type="text"],
 select,
 textarea,
-input[type="date"] {
+.container-profil input[type="date"] {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -612,7 +612,7 @@ input[type="date"] {
   resize: vertical;
 }
 
-input[type="submit"] {
+.container-profil input[type="submit"] {
   background-color: #2e8b57;
   color: white;
   padding: 12px 20px;
@@ -622,7 +622,7 @@ input[type="submit"] {
 
 }
 
-input[type="submit"]:hover {
+.container-profil input[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -631,7 +631,7 @@ input[type="submit"]:hover {
   background-color: #f2f2f2;
   padding: 20px;
 }
-input[type="submit"]:hover {
+.container-profil input[type="submit"]:hover {
   background: #000;
   color: #fff;
   border: 1px solid transparent;
@@ -707,22 +707,25 @@ input[type="submit"]:hover {
   border: 5px solid #e2e2e2;
 }
 .loginBox div p {
-  font-size: 40px;
+  font-size: 20px;
   color: #808080;
   font-family: "Playfair Display", serif;
+  padding: 10px;
 }
-.loginBox input {
-  font-size: 15px;
-  color: #555555;
+
+.loginBox input[type="text"],
+.loginBox input[type="date"],
+.loginBox input[type="password"] {
+  font-size: 13px;
   line-height: 1.2;
   margin: 5px;
   width: 100%;
-  height: 25px;
+  height: 35px;
   background: transparent;
-  padding: 5px;
-  border-radius: 10px;
+  padding: 7px;
   font-family: "Playfair Display", serif;
   outline: none;
+  resize: both;
 }
 .loginBox input:focus {
   width: 100%;
@@ -745,7 +748,7 @@ input[type="submit"]:hover {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #2e8b57;
   border-radius: 25px;
   transition-duration: 0.5s;
   color: #000;
@@ -785,6 +788,7 @@ input[type="submit"]:hover {
 }
 .loginBox .forgotPass {
   text-align: center;
+  margin: 5px;
 }
 .cancel .cancelRef p {
   font-size: 20px;

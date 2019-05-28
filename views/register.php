@@ -2,6 +2,19 @@
 <?php 
 require_once 'checkRoutes.php';
 ?>
+<?php
+require_once 'checkRoutes.php';
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'emailIsAllreadyExist':
+            $mess = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -41,9 +54,6 @@ require_once 'checkRoutes.php';
               ><i class="fas fa-user-circle"></i> Login</a
             >
           </li>
-          <li>
-            <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
-          </li>
         </ul>
       </nav>
       <article>
@@ -52,7 +62,7 @@ require_once 'checkRoutes.php';
         </div>
       </article>
     </header>
-    <form action="#" method="post">
+    <form action="" method="post">
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
@@ -70,7 +80,7 @@ require_once 'checkRoutes.php';
           <p>
             E-mail
           </p>
-          <input type="email" name="email" class="form-control" required placeholder="E-mail" />
+          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola</p>
@@ -104,6 +114,14 @@ require_once 'checkRoutes.php';
             <i class="fas fa-arrow-right"></i>
           </button>
       </div>
+      <?php  
+      require_once 'popup-success.php'; 
+      ?>
+      <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
+                <span>
+                 <?php echo $mess; ?>
+               </span>
+              </div> -->
       </section>
     </div>
     </form>
@@ -124,3 +142,9 @@ require_once 'checkRoutes.php';
     </footer> -->
   </body>
 </html>
+<?php
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignUp();
+}
+?>

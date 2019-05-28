@@ -25,6 +25,11 @@ class AuthModel
         $sql->execute(array(':email' => $email));
         return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
     }
+    public function userExisting($email){
+        $sql = $this->connection->prepare('SELECT id_user FROM users WHERE email = :email');
+        $sql->execute(array(':email' => $email));
+        return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
+    }
     public function addNewUser($firstName,$lastName,$email,$password,$phone,$DOB,$country){
         
         $sql = "INSERT INTO users (firstName, lastName, email,password,phone,DOB,country) VALUES (:firstName, :lastName, :email,:password,:phone,:DOB,:country)";

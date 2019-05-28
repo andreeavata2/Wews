@@ -22,7 +22,7 @@
 
     <title>Document</title>
   </head>
-  <body class="<?php echo $theme; ?>">
+  <body>
     <header>
       <nav>
         <ul class="main">
@@ -46,25 +46,28 @@
     <div class="background">
       <div class="space"></div>
       <div class="loginBox">
-        <p class="forgotPass">Poti reseta parola aici:</p>
         <input
           type="text"
-          name="resetPass"
+          name="email"
           required
           placeholder="Email"
+        />
+        <input
+          type="password"
+          name="password"
+          required
+          placeholder="Parola noua"
+        />
+        <input
+          type="password"
+          name="confirmPass"
+          required
+          placeholder="Confirma parola"
         />
         <div class="btn forgotPass">
           <button class="button" type="submit">
             Reseteaza parola
           </button>
-        </div>
-        <div class="cancel">
-          <a class="cancelRef" href="login.php">
-            <p>
-              <i class="fas fa-arrow-left"></i>  Anuleaza si mergi inapoi la
-              pagina de Login
-            </p>
-          </a>
         </div>
       </div>
       <div class="spaceEnd"></div>
@@ -97,7 +100,9 @@ mysqli_select_db($con,'userregistration');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-$email = $_POST['resetPass'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$confirmPass = $_POST['confirmPass'];
 
 $s = " select * from usertable where email = '$email' ";
 
@@ -105,11 +110,13 @@ $result = mysqli_query($con, $s);
 
 $num = mysqli_num_rows($result);
 
-if( $num == 1 ){
-  header('location:confirmPass.php');
+if( $num == 1 && $password == $confirmPass ){
+  $sql = "UPDATE usertable SET password ='$password' WHERE email= '$email' ";
+  $result2 = mysqli_query($con, $sql);
+  $num2 = mysqli_num_rows($result2);
+  header('location:login.php');
 }else{
-  header('location:forgotPass.php');
+  header('location:confirmPass.php');
 }
 }
 ?>
-
