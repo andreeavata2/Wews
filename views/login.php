@@ -1,3 +1,11 @@
+<?php 
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignIn(); //  static function
+    // $auth  = new AuthController();
+    // $auth->SignUp(); // fara static
+}
+?>
 <?php
 require_once 'checkRoutes.php';
 $error = '';
@@ -5,9 +13,10 @@ $mess = '';
 if (isset($_GET['error'])) {
     $error = $_GET['error'];
     switch ($error) {
-        case 'noacces':
+        case 'false':
             $mess = 'Te rugam sa te logezi.';
-
+        case 'emailNotValid':
+            $mess = 'Email-ul sau parola sunt incorecte. Te rugam sa incerci din nou.';
     }
 }
 if(isset($_GET['success'])){
@@ -147,5 +156,19 @@ if(isset($_GET['success'])){
 require_once '../controllers/AccountController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::SignIn();
+}
+?>
+<?php
+require_once 'checkRoutes.php';
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'false':
+            $mess = 'Te rugam sa te logezi.';
+        case 'emailNotValid':
+            $mess = 'Email-ul sau parola sunt incorecte. Te rugam sa incerci din nou.';
+    }
 }
 ?>
