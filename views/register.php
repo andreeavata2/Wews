@@ -7,6 +7,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // $auth->SignUp(); // fara static
 }
 ?>
+<?php
+require_once 'checkRoutes.php';
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'emailIsAllreadyExist':
+            $mess = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -54,7 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </article>
     </header>
-    <form action="#" method="post">
+    <form action="" method="post">
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
@@ -72,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <p>
             E-mail
           </p>
-          <input type="email" name="email" class="form-control" required placeholder="E-mail" />
+          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
           <p>Parola</p>
@@ -106,6 +119,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <i class="fas fa-arrow-right"></i>
           </button>
       </div>
+      <?php  
+      require_once 'popup-success.php'; 
+      ?>
+      <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
+                <span>
+                 <?php echo $mess; ?>
+               </span>
+              </div> -->
       </section>
     </div>
     </form>
@@ -126,3 +147,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </footer> -->
   </body>
 </html>
+<?php
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignUp();
+}
+?>
