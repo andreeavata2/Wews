@@ -35,7 +35,7 @@ if(isset($_GET['success'])){
     <title>Document</title>
 </head>
 
-<body>
+<body class="<?php echo $theme; ?>">
     <header>
         <nav>
             <ul class="main">
@@ -66,7 +66,7 @@ if(isset($_GET['success'])){
         </nav>
         <article>
             <div class="main-title">
-                <span>Login</span>
+                <h1>Login</h1>
             </div>
         </article>
     </header>

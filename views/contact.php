@@ -26,7 +26,7 @@ require_once 'checkRoutes.php';
 
     <title>Document</title>
   </head>
-  <body>
+  <body class="<?php echo $theme; ?>">
     <header>
       <nav>
         <ul class="main">
@@ -61,7 +61,7 @@ require_once 'checkRoutes.php';
       </nav>
       <article>
         <div class="main-title">
-          <span> Wews - News Web Manager</span>
+          <h1> Wews - News Web Manager</h1>
         </div>
       </article>
     </header>

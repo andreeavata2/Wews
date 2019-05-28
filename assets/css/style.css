@@ -378,6 +378,25 @@ ul.main li a.active {
 }
 
 /*  Style for post.html page here*/
+.PostPage{
+  width: 70%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 20px;
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+}
+.postContainer{
+  margin: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px #f2f2f2;
+
+}
 .mainImage {
   width: 100%;
   padding: 10px;
@@ -422,17 +441,16 @@ ul.main li a.active {
 
 .titlePost {
   width: 100%;
-  padding: 30px;
+  padding: 10px;
+  margin: 10px;
   text-align: center;
   background: rgb(46, 139, 87);
   color: #fff;
-  border-radius: 25px;
   box-sizing: border-box;
 }
 
 .titlePost p {
   font-size: 30px;
-  font-family: "Srisakdi", cursive;
   font-family: "Playfair Display", serif;
 }
 .descriptionPost {
@@ -443,7 +461,7 @@ ul.main li a.active {
 }
 
 .descriptionPost p {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: lighter;
   letter-spacing: 0.5px;
   color: rgb(26, 23, 23);
@@ -570,11 +588,6 @@ input[type="radio"] {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 
   color: white;
-}
-/* tema dark */
-body.dark .theme-title {
-  color: white;
-  background: #000;
 }
 
 .setting-box {
@@ -785,11 +798,23 @@ input[type="submit"]:hover {
 .cancel .cancelRef p:hover {
   color: red;
 }
+/* contact page  */
 
-body.dark {
-  color: white;
-  background: #000;
+.contactBox h2 {
+  font-size: 25px;
+  color: #000;
+  font-family: "Playfair Display", serif;
+  text-align: center;
+  padding: 20px;
 }
+.contactBox p {
+  font-size: 15px;
+  color: #808080;
+  font-family: "Playfair Display", serif;
+  padding: 5px;
+  text-align: center;
+}
+
 @media only screen and (max-width: 700px) {
   .mainPage,
   .pageOptions,
@@ -818,19 +843,163 @@ body.dark {
   }
 }
 
-/* contact page  */
 
-.contactBox h2 {
-  font-size: 25px;
-  color: #000;
-  font-family: "Playfair Display", serif;
-  text-align: center;
-  padding: 20px;
+/* Dark mode */
+/* Index.php */
+body.dark {
+  /* background: #f2f2f2; */
 }
-.contactBox p {
-  font-size: 15px;
-  color: #808080;
-  font-family: "Playfair Display", serif;
-  padding: 5px;
-  text-align: center;
+body.dark .articleContainer{
+  /* background: #000;
+  color:white;
+  box-shadow: 0 0 5px black; */
+}
+body.dark .articleButton .btn{
+  /* background: white; */
+}
+body.dark .articleButton .btn:hover{
+  /* background: white;
+  color : black;
+  box-shadow: 0 0 5px whitesmoke; */
+}
+
+/* user.php */
+body.dark .user-profil{
+  background:  #333333;
+}
+body.dark .info-profil p{
+  color: white;
+}
+body.dark .user-profil input[type="submit"]{
+  background: #000;
+}
+
+/* Cont */
+body.dark ul.main{
+  background: black;
+  opacity: 0.7;
+}
+body.dark ul.main i{
+  color: white;
+}
+
+body.dark ul.main li a{
+color: white;
+}
+
+body.dark ul.main li a:hover{
+color: black;
+}
+body.dark ul.main li a.active{
+color: black;
+background: white;
+}
+body.dark .siderbar{
+  background: #000;
+}
+body.dark .siderbar{
+  background: #000;
+}
+body.dark .siderbarElement a.active{
+  background: #555555;
+}
+body.dark .siderbarElement a {
+  color: white;
+}
+body.dark .siderbarElement a:hover{
+  background: white;
+  color: #000;
+}
+body.dark .siderbarElement a:hover:not(.active){
+  opacity: 1;
+}
+
+/* setari.php */
+
+body.dark .checkbox{
+  /* background: #555555; */
+  /* opacity: 0.8; */
+}
+body.dark .checkbox-title{
+  background: #000;
+  box-shadow: 0 0 0 1px black;
+}
+
+body.dark .theme-title{
+  background: #000;
+  box-shadow: 0 0 0 1px black;
+}
+
+body.dark .theme{
+  /* background: #555555;
+  opacity: 0.8; */
+}
+
+body.dark .checkbox input[type="submit"]{
+  background: #000;
+}
+body.dark .theme input[type="submit"]{
+  background: #000;
+}
+
+/* index.php */
+body.dark .mainPage{
+  background: black;
+    opacity: 0.9;
+}
+body.dark .articleContainer{
+  background: #e9e7e2;
+}
+body.dark .pageOptions{
+  color: white;
+}
+body.dark .categoriesContainer a{
+  color: white;
+
+}
+body.dark .categoriesContainer span.numberOfPostsForCategories{
+  color: #000;
+}
+body.dark .pageRecentPosts{
+  color: white;
+}
+body.dark .recentDescription{
+  color: white;
+}
+body.dark .articles{
+  border-radius: 0px;
+  box-shadow: 0 0 10px black;
+}
+body.dark .mainPage{
+  box-shadow: 0 0 3px black;
+}
+
+/* post.php */
+body.dark .bodyPost {
+  background: #000;
+}
+body.dark .descriptionPost p{
+  color: white
+}
+body.dark .postContainer{
+  box-shadow: 0 0 1px black;
+}
+body.dark .authorPost{
+  background: white;
+}
+body.dark i{
+  color: #000;
+}
+body.dark .titlePost{
+  background: white;
+    color: black;
+}
+body.dark .categoriesContainer i{
+  color: white;
+}
+body.dark .categoriesContainer a:hover{
+  color: white;
+  font-size: 23px;
+  text-shadow: 2px 2px green;
+
 }

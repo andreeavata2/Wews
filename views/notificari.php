@@ -28,7 +28,7 @@ if(!$isLogged){
 
     <title>Notificari</title>
   </head>
-  <body>
+  <body class="<?php echo $theme; ?>">
     <div class="mainDashboard">
       <div class="siderbar">
         <div class="siderbar-mainDashbord">

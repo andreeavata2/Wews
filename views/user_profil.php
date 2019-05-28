@@ -30,7 +30,7 @@ $updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
     <title>User Profil</title>
 </head>
 
-<body>
+<body class="<?php echo $theme; ?>">
     <div class="mainDashboard">
         <div class="siderbar">
             <div class="siderbar-mainDashbord">
@@ -103,7 +103,7 @@ $updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
                                 <option value="Canada">Canada</option>
                                 <option value="Usa">USA</option>
                             </select>
-                            <button type="submit"> Submit </button>
+                            <input type="submit" name="Submit">
                         </form>
                     </div>
                 </div>

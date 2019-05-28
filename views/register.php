@@ -1,11 +1,6 @@
-<?php 
 
-require_once '../controllers/AccountController.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    AccountController::SignUp(); //  static function
-    // $auth  = new AuthController();
-    // $auth->SignUp(); // fara static
-}
+<?php 
+require_once 'checkRoutes.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <title>Document</title>
   </head>
-  <body>
+  <body class="<?php echo $theme; ?>">
     <header>
       <nav>
         <ul class="main">
@@ -53,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </nav>
       <article>
         <div class="main-title">
-          <span>Formular de inregistrare</span>
+          <h1>Formular de inregistrare</h1>
         </div>
       </article>
     </header>

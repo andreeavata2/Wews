@@ -22,7 +22,7 @@
 
     <title>Document</title>
   </head>
-  <body>
+  <body class="<?php echo $theme; ?>">
     <header>
       <nav>
         <ul class="main">

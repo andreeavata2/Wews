@@ -42,7 +42,6 @@ class AccountController
     public static function SignUp()
     {
         if (isset($_POST['email'])) {
-
             require_once '../models/AuthModel.php';
             $firstName = AccountController::clearData($_POST['firstName']);
             $lastName = AccountController::clearData($_POST['lastName']);
