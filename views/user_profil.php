@@ -11,7 +11,28 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 // create method in controller 'updateUserInfo'
 // create update model method
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    echo "bla bla bla";
 $updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
+}
+?>
+<?php
+require_once 'checkRoutes.php';
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'canNotUpdateFile':
+            $mess = 'Datele nu s-au putut actualiza. Te rugam sa incerci din nou.';
+        case 'emailIsAllreadyExist':
+            $mess = 'Emailul pe care l-ati introdus este deja folosit';
+    }
+}
+if(isset($_GET['successfullUpdated'])){
+  switch ($_GET['successfullUpdated']) {
+    case 'true':
+        $mess = 'Date actualizate cu succes.';
+}
 }
 ?>
 <!DOCTYPE html>
@@ -104,6 +125,16 @@ $updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
                                 <option value="Usa">USA</option>
                             </select>
                             <input type="submit" name="Submit">
+                            <div class="popup">
+                                <?php  
+                                require_once 'popup-success.php'; 
+                                ?>
+                            </div>
+                            <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
+                            <span>
+                                <?php echo $mess; ?>
+                            </span>
+                            </div> -->
                         </form>
                     </div>
                 </div>

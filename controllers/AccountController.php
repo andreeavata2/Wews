@@ -104,11 +104,29 @@ class AccountController
             // echo $firstName.$lastName.$email.$phone.$DOB.$country;
 
             $AuthModel = new AuthModel();
-            $res = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
-            echo $res ?  
+            $res = $AuthModel->userExisting($email);
+        if($res==false){
+            echo $res2;
+            $res2 = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
+        } else {
+            header("Location:/Wews/views/register.php?error=emailIsAllreadyExist");
+        }
+
+            // $AuthModel = new AuthModel();
+            // $res = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
+            // if($res==false){
+            //     echo "false";
+            //     // header("Location:/Wews/views/user_profil.php?error=canNotUpdateFile"); 
+            // }
+            // else{
+            //     echo "true";
+            //     header("Location:/Wews/views/user_profil.php?succes=successfullUpdated"); 
+            // }
+            
+            echo $res2 ?  
             header("Location:/Wews/views/user_profil.php?successfullUpdated=true") 
             : 
-            header("Location:/Wews/views/user_profil.php?succes=$res");
+            header("Location:/Wews/views/user_profil.php?error=canNotUpdateFile");
 
     }
 

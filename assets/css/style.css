@@ -744,9 +744,13 @@ textarea,
   padding: 10px;
 }
 
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+}
+
 .loginBox input[type="text"],
 .loginBox input[type="date"],
-.loginBox input[type="password"] {
+.loginBox input[type="password"],.loginBox input[type="email"],.loginBox input[type="tel"] {
   font-size: 13px;
   line-height: 1.2;
   margin: 5px;
@@ -849,6 +853,55 @@ textarea,
   padding: 5px;
   text-align: center;
 }
+
+
+
+.onLoad{
+  position: fixed;
+  top:0;
+  left: 0;
+
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  margin:0 auto;
+  text-align: center;
+  background: red;
+  color:#fff;
+}
+
+/*
+  media queryh
+*/
+
+@media only screen and (max-width: 700px) {
+  .mainPage,
+  .pageOptions,
+  .pageRecentPosts,
+  .articles {
+    width: 100%;
+  }
+
+  .moreImages img {
+    max-height: 300px;
+  }
+  .mainImage .postImage {
+    max-height: 300px;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .mainImage .postImage {
+    max-height: 250px;
+  }
+  ul.main li {
+    display: block;
+  }
+  ul.main li a {
+    display: block;
+  }
+}
+
 
 /* Dark mode */
 /* user.php */
@@ -1060,3 +1113,11 @@ body.dark .categoriesContainer a:hover{
   
 }
 
+
+
+/* popup */
+.popup {
+  width: 100%;
+ color: red;
+ background: #000;
+}

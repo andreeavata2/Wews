@@ -11,6 +11,7 @@ if (isset($_GET['error'])) {
     switch ($error) {
         case 'emailIsAllreadyExist':
             $mess = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
+            // header("Location:/Wews/views/register.php");
 
     }
 }
@@ -50,7 +51,7 @@ if (isset($_GET['error'])) {
             <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>
           </li>
           <li>
-            <a class="active" href="login.php"
+            <a  href="login.php"
               ><i class="fas fa-user-circle"></i> Login</a
             >
           </li>
@@ -66,47 +67,56 @@ if (isset($_GET['error'])) {
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
+      <div class="popup">
+        <?php  
+        require_once 'popup-success.php'; 
+        ?>
+      </div>
         <div class="firstName">
           <p>
-            Nume
+            Nume <span class="mandatory">*</span>
           </p>
-          <input type="text" name="firstName" class="form-control" required placeholder="Nume" />
+          <input type="text" name="firstName" minlength="3" class="form-control" required placeholder="Nume" />
         </div>
         <div class="Prenume">
-          <p>Prenume</p>
-          <input type="text" name="lastName"  class="form-control" required placeholder="Prenume" />
+          <p>Prenume <span class="mandatory">*</span></p>
+          <input type="text" name="lastName" minlength="3"  class="form-control" required placeholder="Prenume" />
         </div>
         <div class="email">
           <p>
-            E-mail
+            E-mail <span class="mandatory">*</span>
           </p>
-          <input type="text" name="email" class="form-control" required placeholder="E-mail" />
+          <input type="email" name="email" minlength="3"  class="form-control" required placeholder="E-mail" />
         </div>
         <div class="password">
-          <p>Parola</p>
-          <input type="password" name="password" class="form-control" required placeholder="Parola" />
+          <p>Parola <span class="mandatory">*</span></p>
+          <input type="password" minlength="3" name="password" class="form-control" required placeholder="Parola" />
         </div>
         <div class="confPass">
-          <p>Confirma Parola</p>
+          <p>Confirma Parola <span class="mandatory">*</span></p>
           <input
             type="password"
             name="confPass"
             class="form-control"
+            minlength="3"
             required
             placeholder="Confirma parola"
           />
         </div>
         <div class="phone">
-          <p>Telefon</p>
-          <input type="text" name="phone" class="form-control" placeholder="Telefon" required />
+          <p>Telefon <span class="mandatory">*</span></p>
+          <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" class="form-control" placeholder="Telefon" required />
         </div>
         <div class="birthday">
           <p>Zi de nastere</p>
-          <input type="date" name="date" class="form-control" />
+          <input type="date"   name="date" class="form-control" />
         </div>
         <div class="country">
-          <p>Tara</p>
-          <input type="text" name="country" class="form-control" placeholder="Tara" required />
+          <p>Tara <span class="mandatory">*</span></p>
+          <input type="text" minlength="3"  name="country" class="form-control" placeholder="Tara" required />
+        </div>
+        <div class="country">
+          <span class="mandatory">*</span> Mandatory fields.
         </div>
         <div class="btn">
           <button class="button" type="submit">
@@ -114,14 +124,6 @@ if (isset($_GET['error'])) {
             <i class="fas fa-arrow-right"></i>
           </button>
       </div>
-      <?php  
-      require_once 'popup-success.php'; 
-      ?>
-      <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
-                <span>
-                 <?php echo $mess; ?>
-               </span>
-              </div> -->
       </section>
     </div>
     </form>

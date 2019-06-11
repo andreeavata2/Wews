@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'checkRoutes.php';
 ?>
 
@@ -11,14 +11,16 @@ require_once 'checkRoutes.php';
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
     <title>Document</title>
 </head>
 
-<body class="<?php echo $theme; ?>">
+<body onload="fetchingData()" class="<?php echo $theme; ?>">
+    <div class="onLoad" id="onLoadContainer">
+        <span class="textToLoad" id="textToLoadId">Loading</span>
+    </div>
     <header>
         <nav>
             <ul class="main">
@@ -30,8 +32,8 @@ require_once 'checkRoutes.php';
                 </li>
 
                 <?php
-            if($isLogged){
-              echo '
+                if ($isLogged) {
+                    echo '
               <li>
                   <a href="logout.php"><i class="fas fa-user-circle"></i> Logout</a>
               </li>
@@ -39,14 +41,14 @@ require_once 'checkRoutes.php';
                 <a href="user_profil.php"> <i class="fas fa-cog"></i>Cont</a>
                </li>
               ';
-            }else{
-              echo '
+                } else {
+                    echo '
               <li>
               <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
               ';
-            }
-          ?>
+                }
+                ?>
 
             </ul>
         </nav>
@@ -59,98 +61,7 @@ require_once 'checkRoutes.php';
 
     <article class="mainContainer">
         <section class="mainPage">
-            <div class="articles">
-                <div class="articleContainer">
-                    <div class="articleImg">
-                        <img src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                            alt="imgPost" />
-                    </div>
-                    <div class="articleTitle">
-                        <h2>
-                            The best title ever
-                        </h2>
-                    </div>
-                    <div class="articleDescription">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-                        molestias delectus labore. Corrupti iure maiores minus esse soluta
-                        a eius distinctio, eveniet magni.
-                    </div>
-                    <div class="articleButton">
-                        <button class="btn normal" onclick="location.href='post.php'" type="button">
-                            Vezi mai multe
-                        </button>
-                    </div>
-                </div>
-
-                <div class="articleContainer">
-                    <div class="articleImg">
-                        <img src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                            alt="imgPost" />
-                    </div>
-                    <div class="articleTitle">
-                        <h2>
-                            The best title ever
-                        </h2>
-                    </div>
-                    <div class="articleDescription">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-                        molestias delectus labore. Corrupti iure maiores minus esse soluta
-                        a eius distinctio, eveniet magni.
-                    </div>
-                    <div class="articleButton">
-                        <button class="btn normal" onclick="location.href='post.php'" type="button">
-                            Vezi mai multe
-                        </button>
-                    </div>
-                </div>
-
-                <div class="articleContainer">
-                    <div class="articleImg">
-                        <img src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                            alt="imgPost" />
-                    </div>
-                    <div class="articleTitle">
-                        <h2>
-                            The best title ever
-                        </h2>
-                    </div>
-                    <div class="articleDescription">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-                        molestias delectus labore. Corrupti iure maiores minus esse soluta
-                        a eius distinctio, eveniet magni.
-                    </div>
-                    <div class="articleButton">
-                        <button class="btn normal" onclick="location.href='post.php'" type="button">
-                            Vezi mai multe
-                        </button>
-                    </div>
-                </div>
-                <div class="articleContainer">
-                    <div class="articleImg">
-                        <img src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg"
-                            alt="imgPost" />
-                    </div>
-                    <div class="articleTitle">
-                        <h2>
-                            The best title ever
-                        </h2>
-                    </div>
-                    <div class="articleDescription">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-                        molestias delectus labore. Corrupti iure maiores minus esse soluta
-                        a eius distinctio, eveniet magni.
-                    </div>
-                    <div class="articleButton">
-                        <button class="btn normal" onclick="location.href='post.php'" type="button">
-                            Vezi mai multe
-                        </button>
-                    </div>
-                </div>
-            </div>
+           <?php require_once 'view-posts.php'; ?>
             <div class="pageOptions">
                 <div class="categories">
                     <div class="categoriesTitle">
@@ -291,6 +202,8 @@ require_once 'checkRoutes.php';
             </p>
         </div>
     </footer>
+
+    <script src="../assets/js/main.js"></script>
 </body>
 
 </html>

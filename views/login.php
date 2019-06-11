@@ -23,7 +23,6 @@ if(isset($_GET['success'])){
   switch ($_GET['success']) {
     case 'accountCreated':
         $mess = 'Cont creat cu succes.Te rugam sa te logezi.';
-
 }
 }
 ?>
@@ -120,9 +119,11 @@ if(isset($_GET['success'])){
                         Login
                     </button>
                 </div>
-                <?php  
-                require_once 'popup-success.php'; 
-                ?>
+               <div class="popup">
+                    <?php  
+                    require_once 'popup-success.php'; 
+                    ?>
+               </div>
                 <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
                     <span>
                         <?php echo $mess; ?>
