@@ -1,4 +1,9 @@
-
+<?php
+require_once '../controllers/AccountController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    AccountController::SignUp();
+}
+?>
 <?php 
 require_once 'checkRoutes.php';
 ?>
@@ -12,10 +17,10 @@ if (isset($_GET['error'])) {
         case 'emailIsAllreadyExist':
             $mess = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
             // header("Location:/Wews/views/register.php");
-
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,11 +72,11 @@ if (isset($_GET['error'])) {
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
-      <div class="popup">
-        <?php  
-        require_once 'popup-success.php'; 
-        ?>
-      </div>
+        <div class="popup">
+          <?php  
+          require_once 'popup-success.php'; 
+          ?>
+        </div>
         <div class="firstName">
           <p>
             Nume <span class="mandatory">*</span>
@@ -116,7 +121,7 @@ if (isset($_GET['error'])) {
           <input type="text" minlength="3"  name="country" class="form-control" placeholder="Tara" required />
         </div>
         <div class="country">
-          <span class="mandatory">*</span> Mandatory fields.
+          <span class="mandatory">*</span> Campuri obligatorii.
         </div>
         <div class="btn">
           <button class="button" type="submit">
@@ -144,9 +149,4 @@ if (isset($_GET['error'])) {
     </footer> -->
   </body>
 </html>
-<?php
-require_once '../controllers/AccountController.php';
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    AccountController::SignUp();
-}
-?>
+

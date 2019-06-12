@@ -6,14 +6,43 @@ if(!$isLogged){
 
 require_once '../controllers/AccountController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    AccountController::getCategories();
     AccountController::getTheme();
+    AccountController::getCategories();
+    
 }
+
+$error = '';
+$mess = '';
+if (isset($_GET['error'])) {
+    $error = $_GET['error'];
+    switch ($error) {
+        case 'categoriiOff':
+            $mess = 'Categoriile nu s-au putut actualiza.';
+            break;
+        case 'themeOff':
+            $mess = 'Tema nu s-a putut actualiza.';
+            break;
+    }
+}
+if(isset($_GET['success'])){
+    switch ($_GET['success']) {
+      case 'themeOn':
+        $mess = 'Tema s-a actualizat cu succes.';
+        break;
+      case 'categoriiOn':
+          $mess = 'Categoriile/Tema s-au actualizat cu succes.';
+          break;
+      
+  }
+  }
 
 // $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 $arrayOfCategories = AccountController::getUserCategories();
 $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 
+?>
+<?php
+// require_once 'checkRoutes.php';
 
 ?>
 <!DOCTYPE html>
@@ -80,16 +109,18 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         <div class="checkbox-title">
                             Categorii:
                         </div>
-                        <input type="checkbox" name="categorie[]" value="Tehnologie" <?php if(in_array('Tehnologie',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Tehnologie<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Stiinta" <?php if(in_array('Stiinta',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Stiinta<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Politica" <?php if(in_array('Politica',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Politica<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Sport" <?php if(in_array('Sport',$arrayOfCategories)) echo 'checked'; ?> />
-                        Sport<br /><br />
-                        <input type="checkbox" name="categorie[]" value="Social" <?php if(in_array('Social',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Social<br /><br />
+                        <input type="checkbox" name="categorie[]" value="business" <?php if(in_array('business',$arrayOfCategories)) echo 'checked'; ?>  />
+                        Business<br /><br />
+                        <input type="checkbox" name="categorie[]" value="entertainment" <?php if(in_array('entertainment',$arrayOfCategories)) echo 'checked'; ?>  />
+                        Entertainment<br /><br />
+                        <input type="checkbox" name="categorie[]" value="health" <?php if(in_array('health',$arrayOfCategories)) echo 'checked'; ?>  />
+                        Health<br /><br />
+                        <input type="checkbox" name="categorie[]" value="science" <?php if(in_array('science',$arrayOfCategories)) echo 'checked'; ?> />
+                        Science<br /><br />
+                        <input type="checkbox" name="categorie[]" value="sports" <?php if(in_array('sports',$arrayOfCategories)) echo 'checked'; ?>  />
+                        Sports<br /><br />
+                        <input type="checkbox" name="categorie[]" value="technology" <?php if(in_array('technology',$arrayOfCategories)) echo 'checked'; ?>  />
+                        Technology<br /><br />
                         <input type="submit" value="Submit" />
                     </div>
                     <div class="theme">
@@ -100,10 +131,18 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         <input type="radio" name="theme" value="dark"  <?php if($userInfo['theme'] === 'dark') { echo 'checked'; } ?>/> Dark<br />
                         <input type="submit" value="Submit" />
                     </div>
+                    <div class="popup">
+                      <?php 
+                      require_once 'popup-success.php'; 
+                      ?>
+                    </div>
                 </div>
+                
             </form>
+            
         </div>
     </div>
 </body>
 
 </html>
+

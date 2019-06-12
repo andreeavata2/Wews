@@ -64,7 +64,7 @@ if(isset($_GET['success'])){
               '; } else {
                   echo '
               <li>
-              <a href="login.php"><i class="fas fa-user-circle"></i> Login</a>
+              <a class="active" href="login.php"><i class="fas fa-user-circle"></i> Login</a>
           </li>
               ';
             }
@@ -107,11 +107,6 @@ if(isset($_GET['success'])){
                             Inscrie-te
                         </a>
                     </div>
-                    <div class="forgotPass">
-                        <a href="forgotPass.php" class="txt1">
-                            Ti-ai uitat parola?
-                        </a>
-                    </div>
                 </div>
 
                 <div class="btn">
@@ -124,11 +119,41 @@ if(isset($_GET['success'])){
                     require_once 'popup-success.php'; 
                     ?>
                </div>
-                <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
-                    <span>
-                        <?php echo $mess; ?>
-                  </span>
-                 </div> -->
+               <!-- <?php
+                if (isset($_GET['error'])) {
+                    $errorMsg = "";
+                    $error = $_GET['error'];
+                    switch ($error) {
+                        case 'false':
+                            $errorMsg = 'Te rugam sa te logezi.';
+                            break;
+                        case 'emailNotValid':
+                            $errorMsg = 'Email-ul sau parola sunt incorecte. Te rugam sa incerci din nou.';
+                            break;
+                    }
+                    echo '
+                            <div class="errorContainer" id="errorContainerId">
+                                <span class="errorMessage">' . $errorMsg . '</span>
+                                <span class="closeError" title="Close Message" id="closeErrorMessage"><i class="far fa-times-circle"></i></span>
+                            </div>';
+                }
+                    ?>
+                    <?php
+                    if(isset($_GET['success'])){
+                        $successMsg = "";
+                        switch ($_GET['success']) {
+                          case 'accountCreated':
+                            $successMsg = 'Cont creat cu succes.Te rugam sa te logezi.';
+                            break;
+                      }
+                        echo '
+                            <div class="successContainer" id="successContainerId">
+                                <span class="successMessage">' . $successMsg . '</span>
+                                <span class="closeSuccess" title="Close Message" id="closeSuccessMessage"><i class="far fa-times-circle"></i></span>
+                            </div>';
+                    }
+                    ?> -->
+
             </div>
             <div class="spaceEnd"></div>
         </div>
