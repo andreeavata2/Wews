@@ -2,7 +2,12 @@
 require_once 'checkRoutes.php';
 require_once '../controllers/WewsController.php';
 $wews = new WewsController();
-$posts = $wews->getPosts();
+if(isset($_GET['category'])){
+    $posts = $wews->getPostByCategory($_GET['category']);
+}else{
+    $posts = $wews->getPosts();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -66,188 +71,11 @@ $posts = $wews->getPosts();
         <section class="mainPage">
            <?php require_once 'view-posts.php'; ?>
             <div class="pageOptions">
-                <div class="categories">
-                    <div class="categoriesTitle">
-                        <span>Categorii</span>
-                    </div>
-                    <div class="categoriesBody">
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Business
-                                    <?php $category= "business"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Entertainment
-                                    <?php $category= "entertainment"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Health
-                                    <?php $category= "health"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Science
-                                    <?php $category= "science"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Sports
-                                    <?php $category= "sports"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Technology
-                                    <?php $category= "technology"; ?>
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    <?php
-                                    $countNumber=0;
-                                    foreach ($posts as $post){
-                                        if($post['postCategory']==$category)
-                                            $countNumber+=1;
-                                    }
-                                    echo $countNumber;
-                                    ?>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <?php require_once 'categories.php'; ?>
             </div>
 
             <div class="pageRecentPosts">
-                <div class="recentPosts">
-                    <div class="recentTitlePosts">
-                        <span>Postari Recente</span>
-                    </div>
-                    <div class="recentBody">
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    The best title ever Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Aliquid blanditiis natus, atque
-                                    repellendus voluptates molestias quaerat ducimus fuga nisi,
-                                    excepturi eum...
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Voluptates, adipisci atque nihil sint iste aperiam
-                                    distinctio est minima architecto tempore quae at cumque a
-                                    quasi illo accusamus necessitatibus minus quia?
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                    Temporibus laboriosam nostrum dignissimos, minus quasi
-                                    impedit asperiores in facere incidunt delectus non sed ut
-                                    autem ab quas nemo neque earum ea!
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <?php require_once 'recentPosts.php'; ?>
             </div>
         </section>
     </article>

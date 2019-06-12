@@ -1,8 +1,8 @@
 <div class="articles">
 <?php 
     require_once '../controllers/WewsController.php';
-    $wews = new WewsController();
-    $posts = $wews->getPosts();
+    // $wews = new WewsController();
+    // $posts = $wews->getPosts();
     // var_dump($posts) ;
     foreach ($posts as $post) {
         ?> 

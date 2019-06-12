@@ -1,5 +1,4 @@
 <?php
-
 require_once '../views/config.php';
 class WewsModel
 {
@@ -14,6 +13,8 @@ class WewsModel
         }
     }
 
+    
+
     private function connect()
     {
         $connection_string = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';';
@@ -27,11 +28,76 @@ class WewsModel
         return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
     }
 
-    public function getPostsFromDb() {
+    public function makeQuery($sqlQuery){
         $list = [];
         $newList = array();
         
-        $sql = $this->connection->prepare('SELECT * FROM posts');
+        $sql = $this->connection->prepare($sqlQuery);
+
+        $sql->execute();
+        foreach ($sql->fetchAll() as $result) {
+            array_push($newList,
+                array("postId" => $result['postId'],
+                    "postSourceName" => $result['postSourceName'],
+                    "postAuthor" => $result['postAuthor'],
+                    "postTitle" => $result['postTitle'],
+                    "postDescription" => $result['postDescription'],
+                    "postUrl" => $result['postUrl'],
+                    "postUrlToImage" => $result['postUrlToImage'],
+                    "postPublishedAt" => $result['postPublishedAt'],
+                    "postContent" => $result['postContent'],
+                    "postCategory" => $result['postCategory'],
+                    "postLoadedAt" => $result['postLoadedAt'])
+            );
+        }
+        return $newList;
+    }
+
+    public function getPostsByCategory($cat){
+        $sql = "SELECT * from posts where postCategory='$cat' ";
+        return $this->makeQuery($sql);
+    }
+
+    public function getPostsOrderBy($orderBy = "postPublishedAt",$total = 3){
+
+        $list = [];
+        $newList = array();
+
+        $sqlQ = "SELECT * FROM posts
+        ORDER BY '$orderBy' DESC LIMIT $total";
+        
+        $sql = $this->connection->prepare($sqlQ);
+        // return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
+
+        $sql->execute();
+        foreach ($sql->fetchAll() as $result) {
+            array_push($newList,
+                array("postId" => $result['postId'],
+                    "postSourceName" => $result['postSourceName'],
+                    "postAuthor" => $result['postAuthor'],
+                    "postTitle" => $result['postTitle'],
+                    "postDescription" => $result['postDescription'],
+                    "postUrl" => $result['postUrl'],
+                    "postUrlToImage" => $result['postUrlToImage'],
+                    "postPublishedAt" => $result['postPublishedAt'],
+                    "postContent" => $result['postContent'],
+                    "postCategory" => $result['postCategory'],
+                    "postLoadedAt" => $result['postLoadedAt'])
+            );
+        }
+        return $newList;
+    }
+
+    public function getPostsFromDb() {
+        $list = [];
+        $newList = array();
+
+        $sqlQ = "SELECT * FROM (
+            SELECT * FROM posts ORDER BY RAND() LIMIT 20
+        ) u
+        ORDER BY postTitle";
+        
+        $sql = $this->connection->prepare($sqlQ);
         // return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
 
         $sql->execute();

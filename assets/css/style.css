@@ -315,11 +315,23 @@ ul.main li a.active {
 
 .recentContainer {
   display: flex;
+    max-height: 300px;
+    overflow: hidden;
+    margin: 20px 0;
 }
 
 .recentImg {
   float: left;
-  width: 50%;
+    /* width: 50%; */
+    overflow: hidden;
+    /* max-width: 100px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.recentImg img{
+  width: 100%;
 }
 
 .recentDescription {
@@ -332,6 +344,7 @@ ul.main li a.active {
 
 .recentBody a {
   text-decoration: none;
+  width: 100%;
 }
 .recentContainer .recentDescription:hover {
   color: gray;

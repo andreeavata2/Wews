@@ -10,13 +10,29 @@ class WewsController
         return "respone from server";
     }
 
-    public function getPosts()
+    
+
+    public function getPostByCategory($cat){
+        require_once '../models/WewsModel.php';
+        $WewsModel = new WewsModel();
+        $res = $WewsModel->getPostsByCategory($cat);
+        return $res ? $res : false;
+    }
+    public function getPosts($total = 0)
     {
         require_once '../models/WewsModel.php';
         $WewsModel = new WewsModel();
-        $res = $WewsModel->getPostsFromDb();
+        $res = $WewsModel->getPostsFromDb($total);
         return $res ? $res : false;
     }
+    public function getPostsOrderBy($total = 0)
+    {
+        require_once '../models/WewsModel.php';
+        $WewsModel = new WewsModel();
+        $res = $WewsModel->getPostsOrderBy();
+        return $res ? $res : false;
+    }
+
     public function getPostInfo($id)
     {
         require_once '../models/WewsModel.php';

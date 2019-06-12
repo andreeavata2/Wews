@@ -88,7 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                         <p>
                             <br />
                             <br />
-                            <?php echo $post['postContent']; ?>
+                            <?php echo explode('[+',$post['postDescription'])[0].'...'; ?>
+                            <a target="_blank"; href=<?php  echo $post['postUrl']; ?>>Spre articol original</a>
                         </p>
                     </div>
                     <!-- <div class="moreImages">
@@ -103,127 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
             <!-- close PostPage  -->
             <div class="pageOptions">
-                <div class="categories">
-                    <div class="categoriesTitle">
-                        <span>Categorii</span>
-                    </div>
-                    <div class="categoriesBody">
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Tehnologie
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    10
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Stiinta
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    10
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Politica
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    10
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Sport
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    10
-                                </span>
-                            </a>
-                        </div>
-                        <div class="categoriesContainer">
-                            <a href="#">
-                                <span class="icon">
-                                    <i class="fas fa-angle-right"></i>
-                                </span>
-                                <span class="nameCategories">
-                                    Social
-                                </span>
-                                <span class="numberOfPostsForCategories">
-                                    10
-                                </span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            <?php require_once 'categories.php'; ?>
             </div>
 
             <div class="pageRecentPosts">
-                <div class="recentPosts">
-                    <div class="recentTitlePosts">
-                        <span>Postari Recente</span>
-                    </div>
-                    <div class="recentBody">
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    The best title ever Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Aliquid blanditiis natus, atque
-                                    repellendus voluptates molestias quaerat ducimus fuga nisi,
-                                    excepturi eum...
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Voluptates, adipisci atque nihil sint iste aperiam
-                                    distinctio est minima architecto tempore quae at cumque a
-                                    quasi illo accusamus necessitatibus minus quia?
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#">
-                            <div class="recentContainer">
-                                <div class="recentImg">
-                                    <img src="https://www.joslin.org/images/hp-news-icon.png" alt="recentPost" />
-                                </div>
-                                <div class="recentDescription">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                    Temporibus laboriosam nostrum dignissimos, minus quasi
-                                    impedit asperiores in facere incidunt delectus non sed ut
-                                    autem ab quas nemo neque earum ea!
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+            <?php require_once 'recentPosts.php'; ?>
             </div>
         </section>
     </article>

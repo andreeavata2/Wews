@@ -9,7 +9,7 @@ if ($posts === false) { // if false because are 0 lines or because the time expi
     for ($i = 0; $i < count($newApiCategories); $i++) { // for every category 
 
         $requestApiURL = $apiBody . "?country=ro&category=" . $newApiCategories[$i] . "&apiKey=" . $API_KEY;
-
+        $dd = "https://newsapi.org/v2/top-headlines?country=ro&category=health&apiKey=3e2c1db3db4d483b89d53e709221d179";
         $requestForPosts = curl_init();
         curl_setopt($requestForPosts, CURLOPT_URL, $requestApiURL);              // stabilim URL-ul serviciului
         curl_setopt($requestForPosts, CURLOPT_RETURNTRANSFER, true);  // rezultatul cererii va fi disponibil ca șir de caractere
