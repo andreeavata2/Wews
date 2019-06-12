@@ -1,49 +1,18 @@
-<?php 
+<?php
 require_once 'checkRoutes.php';
-if(!$isLogged){
-  header('Location:/Wews/views/login.php?error=noacces');
+if (!$isLogged) {
+    header('Location:/Wews/views/login.php?error=noacces');
 }
 
 require_once '../controllers/AccountController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::getTheme();
     AccountController::getCategories();
-    
 }
-
-$error = '';
-$mess = '';
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    switch ($error) {
-        case 'categoriiOff':
-            $mess = 'Categoriile nu s-au putut actualiza.';
-            break;
-        case 'themeOff':
-            $mess = 'Tema nu s-a putut actualiza.';
-            break;
-    }
-}
-if(isset($_GET['success'])){
-    switch ($_GET['success']) {
-      case 'themeOn':
-        $mess = 'Tema s-a actualizat cu succes.';
-        break;
-      case 'categoriiOn':
-          $mess = 'Categoriile/Tema s-au actualizat cu succes.';
-          break;
-      
-  }
-  }
 
 // $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 $arrayOfCategories = AccountController::getUserCategories();
 $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
-
-?>
-<?php
-// require_once 'checkRoutes.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,8 +23,7 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
     <title>Setari</title>
@@ -109,40 +77,73 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         <div class="checkbox-title">
                             Categorii:
                         </div>
-                        <input type="checkbox" name="categorie[]" value="business" <?php if(in_array('business',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Business<br /><br />
-                        <input type="checkbox" name="categorie[]" value="entertainment" <?php if(in_array('entertainment',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Entertainment<br /><br />
-                        <input type="checkbox" name="categorie[]" value="health" <?php if(in_array('health',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Health<br /><br />
-                        <input type="checkbox" name="categorie[]" value="science" <?php if(in_array('science',$arrayOfCategories)) echo 'checked'; ?> />
-                        Science<br /><br />
-                        <input type="checkbox" name="categorie[]" value="sports" <?php if(in_array('sports',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Sports<br /><br />
-                        <input type="checkbox" name="categorie[]" value="technology" <?php if(in_array('technology',$arrayOfCategories)) echo 'checked'; ?>  />
-                        Technology<br /><br />
+                        <input type="checkbox" name="categorie[]" id="business" value="business" <?php if (in_array('business', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="business">Business</label><br /><br />
+                        <input type="checkbox" name="categorie[]" id="entertainment" value="entertainment" <?php if (in_array('entertainment', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="entertainment">Entertainment</label><br /><br />
+                        <input type="checkbox" name="categorie[]" id="health" value="health" <?php if (in_array('health', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="health">Health</label><br /><br />
+                        <input type="checkbox" name="categorie[]" id="science" value="science" <?php if (in_array('science', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="science">Science</label><br /><br />
+                        <input type="checkbox" name="categorie[]" id="sports" value="sports" <?php if (in_array('sports', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="sports">Sports</label><br /><br />
+                        <input type="checkbox" name="categorie[]" id="technology" value="technology" <?php if (in_array('technology', $arrayOfCategories)) echo 'checked'; ?> />
+                        <label for="technology">Technology</label><br /><br />
                         <input type="submit" value="Submit" />
                     </div>
                     <div class="theme">
                         <div class="theme-title">
                             Teme:
                         </div>
-                        <input type="radio" name="theme" value="white" <?php if($userInfo['theme'] === 'white') { echo 'checked'; } ?>/> White<br />
-                        <input type="radio" name="theme" value="dark"  <?php if($userInfo['theme'] === 'dark') { echo 'checked'; } ?>/> Dark<br />
+                        <input type="radio" name="theme" id="white" value="white" <?php if ($userInfo['theme'] === 'white') {
+                                                                                        echo 'checked';
+                                                                                    } ?> /> <label for="white">White</label><br />
+                        <input type="radio" name="theme" id="dark" value="dark" <?php if ($userInfo['theme'] === 'dark') {
+                                                                                    echo 'checked';
+                                                                                } ?> /> <label for="dark">Dark</label><br />
                         <input type="submit" value="Submit" />
                     </div>
-                    <div class="popup">
-                      <?php 
-                      require_once 'popup-success.php'; 
-                      ?>
-                    </div>
+                    <?php
+                    if (isset($_GET['error'])) {
+                        $errorMsg = "";
+                        $error = $_GET['error'];
+                        switch ($error) {
+                            case 'categoriiOff':
+                                $errorMsg = 'Categoriile nu s-au putut actualiza.';
+                                break;
+                            case 'themeOff':
+                                $errorMsg = 'Tema nu s-a putut actualiza.';
+                                break;
+                        }
+                        echo '
+                            <div class="errorContainer" id="errorContainerId">
+                                <span class="errorMessage">' . $errorMsg . '</span>
+                            </div>';
+                    }
+                    ?>
+                    <?php
+                    if (isset($_GET['success'])) {
+                        $successMsg = "";
+                        switch ($_GET['success']) {
+                            case 'themeOn':
+                                $successMsg = 'Tema s-a actualizat cu succes.';
+                                break;
+                            case 'categoriiOn':
+                                $successMsg = 'Categoriile/Tema s-au actualizat cu succes.';
+                                break;
+                        }
+                        echo '
+                            <div class="successContainer" id="successContainerId">
+                                <span class="successMessage">' . $successMsg . '</span>
+                            </div>';
+                    }
+                    ?>
                 </div>
-                
+
             </form>
-            
+
         </div>
     </div>
 </body>
 
 </html>
-

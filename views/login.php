@@ -6,26 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // $auth->SignUp(); // fara static
 }
 ?>
-<?php
-require_once 'checkRoutes.php';
-$error = '';
-$mess = '';
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    switch ($error) {
-        case 'false':
-            $mess = 'Te rugam sa te logezi.';
-        case 'emailNotValid':
-            $mess = 'Email-ul sau parola sunt incorecte. Te rugam sa incerci din nou.';
-    }
-}
-if(isset($_GET['success'])){
-  switch ($_GET['success']) {
-    case 'accountCreated':
-        $mess = 'Cont creat cu succes.Te rugam sa te logezi.';
-}
-}
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -114,12 +95,7 @@ if(isset($_GET['success'])){
                         Login
                     </button>
                 </div>
-               <div class="popup">
-                    <?php  
-                    require_once 'popup-success.php'; 
-                    ?>
-               </div>
-               <!-- <?php
+               <?php
                 if (isset($_GET['error'])) {
                     $errorMsg = "";
                     $error = $_GET['error'];
@@ -134,7 +110,6 @@ if(isset($_GET['success'])){
                     echo '
                             <div class="errorContainer" id="errorContainerId">
                                 <span class="errorMessage">' . $errorMsg . '</span>
-                                <span class="closeError" title="Close Message" id="closeErrorMessage"><i class="far fa-times-circle"></i></span>
                             </div>';
                 }
                     ?>
@@ -149,10 +124,9 @@ if(isset($_GET['success'])){
                         echo '
                             <div class="successContainer" id="successContainerId">
                                 <span class="successMessage">' . $successMsg . '</span>
-                                <span class="closeSuccess" title="Close Message" id="closeSuccessMessage"><i class="far fa-times-circle"></i></span>
                             </div>';
                     }
-                    ?> -->
+                    ?>
 
             </div>
             <div class="spaceEnd"></div>

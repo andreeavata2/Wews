@@ -1,7 +1,7 @@
-<?php 
+<?php
 require_once 'checkRoutes.php';
-if(!$isLogged){
-  header('Location:/Wews/views/login.php?error=noacces');
+if (!$isLogged) {
+    header('Location:/Wews/views/login.php?error=noacces');
 }
 
 require_once '../controllers/AccountController.php';
@@ -12,28 +12,12 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 // create update model method
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo "bla bla bla";
-$updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
+    $updateUserInfo = AccountController::updateUserInfo($_SESSION['id_user']);
 }
 ?>
 <?php
 require_once 'checkRoutes.php';
-$error = '';
-$mess = '';
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    switch ($error) {
-        case 'canNotUpdateFile':
-            $mess = 'Datele nu s-au putut actualiza. Te rugam sa incerci din nou.';
-        case 'emailIsAllreadyExist':
-            $mess = 'Emailul pe care l-ati introdus este deja folosit';
-    }
-}
-if(isset($_GET['successfullUpdated'])){
-  switch ($_GET['successfullUpdated']) {
-    case 'true':
-        $mess = 'Date actualizate cu succes.';
-}
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,8 +28,7 @@ if(isset($_GET['successfullUpdated'])){
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
     <title>User Profil</title>
@@ -100,20 +83,16 @@ if(isset($_GET['successfullUpdated'])){
                     <div class="container-profil">
                         <form action="" method="post">
                             <label for="firstName">Numele</label>
-                            <input type="text" id="firstName" name="firstName"
-                                value="<?php echo $userInfo['firstName']; ?>" placeholder="Numele tau..." />
+                            <input type="text" id="firstName" name="firstName" value="<?php echo $userInfo['firstName']; ?>" placeholder="Numele tau..." />
 
                             <label for="lastName">Prenumele</label>
-                            <input type="text" id="lastName" name="lastName"
-                                value="<?php echo $userInfo['lastName']; ?>" placeholder="Prenumele tau..." />
+                            <input type="text" id="lastName" name="lastName" value="<?php echo $userInfo['lastName']; ?>" placeholder="Prenumele tau..." />
 
                             <label for="email">E-mail</label>
-                            <input type="text" readonly="readonly" id="email" name="email" value="<?php echo $userInfo['email']; ?>"
-                                placeholder="E-mail-ul tau..." />
+                            <input type="text" readonly="readonly" id="email" name="email" value="<?php echo $userInfo['email']; ?>" placeholder="E-mail-ul tau..." />
 
                             <label for="phone">Telefon</label>
-                            <input type="text" id="phone" name="phone" value="<?php echo $userInfo['phone']; ?>"
-                                placeholder="Telefonul tau..." />
+                            <input type="text" id="phone" name="phone" value="<?php echo $userInfo['phone']; ?>" placeholder="Telefonul tau..." />
                             <label for="DOB">Zi de nastere</label>
 
                             <input type="date" id="DOB" name="DOB" value="<?php echo $userInfo['DOB']; ?>" />
@@ -125,16 +104,38 @@ if(isset($_GET['successfullUpdated'])){
                                 <option value="Usa">USA</option>
                             </select>
                             <input type="submit" name="Submit">
-                            <div class="popup">
-                                <?php  
-                                require_once 'popup-success.php'; 
-                                ?>
-                            </div>
-                            <!-- <div style=" <?php echo $error === '' ? 'none' : 'block'; ?>" class="message">
-                            <span>
-                                <?php echo $mess; ?>
-                            </span>
-                            </div> -->
+                            <?php
+                            if (isset($_GET['error'])) {
+                                $errorMsg = "";
+                                $error = $_GET['error'];
+                                switch ($error) {
+                                    case 'canNotUpdateFile':
+                                        $errorMsg = 'Datele nu s-au putut actualiza. Te rugam sa incerci din nou.';
+                                        break;
+                                    case 'emailIsAllreadyExist':
+                                        $errorMsg = 'Emailul pe care l-ati introdus este deja folosit.';
+                                        break;
+                                }
+                                echo '
+                            <div class="errorContainer" id="errorContainerId">
+                                <span class="errorMessage">' . $errorMsg . '</span>
+                            </div>';
+                            }
+                            ?>
+                            <?php
+                            if (isset($_GET['successfullUpdated'])) {
+                                $successMsg = "";
+                                switch ($_GET['successfullUpdated']) {
+                                    case 'true':
+                                        $successMsg = 'Date actualizate cu succes.';
+                                        break;
+                                }
+                                echo '
+                            <div class="successContainer" id="successContainerId">
+                                <span class="successMessage">' . $successMsg . '</span>
+                            </div>';
+                            }
+                            ?>
                         </form>
                     </div>
                 </div>
