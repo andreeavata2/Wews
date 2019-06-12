@@ -52,6 +52,11 @@ class WewsModel
         }
         return $newList;
     }
+    public function getPostInfoFromDb($id) {
+        $sql = $this->connection->prepare('SELECT * FROM posts WHERE postId = :id');
+        $sql->execute(array(':id' => $id));
+        return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
+    }
 
     public function addPostToDb($postSourceName,$postAuthor,$postTitle,$postDescription,$postUrl,$postUrlToImage,$postPublishedAt,$postContent,$postCategory,$postLoadedAt){
         $sql = "INSERT INTO posts (postSourceName, postAuthor, postTitle,postDescription,postUrl,postUrlToImage,postPublishedAt,postContent,postCategory,postLoadedAt) VALUES (:postSourceName,:postAuthor,:postTitle,:postDescription,:postUrl,:postUrlToImage,:postPublishedAt,:postContent,:postCategory,:postLoadedAt)";

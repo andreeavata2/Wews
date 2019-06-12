@@ -17,6 +17,13 @@ class WewsController
         $res = $WewsModel->getPostsFromDb();
         return $res ? $res : false;
     }
+    public function getPostInfo($id)
+    {
+        require_once '../models/WewsModel.php';
+        $WewsModel = new WewsModel();
+        $res = $WewsModel->getPostInfoFromDb($id);
+        return $res ? $res : false;
+    }
 
     public function addPost($postSourceName = "",$postAuthor = "",$postTitle = "",$postDescription = "",$postUrl ="",$postUrlToImage  = "",$postPublishedAt = "",$postContent = "",$postCategory = ""){
         $postLoadedAt = new DateTime(); //  the current time
@@ -25,18 +32,4 @@ class WewsController
         $res = $WewsModel->addPostToDb($postSourceName,$postAuthor ,$postTitle,$postDescription,$postUrl,$postUrlToImage,$postPublishedAt,$postContent,$postCategory,$stringPostLoadedAt);
         return $res ? "trueee" : "falseee";
     }
-
-    // public static function getAllPost($category, $postTitle, $postDescription, $postUrlToImage){
-    //     // $postTitle = ""; hai ca ma uit eu :D
-
-    //     // $postDescription = "";
-    //     // $postUrlToImage = "";
-
-    //     require_once '../models/WewsModel.php';
-    //     $WewsModel = new WewsModel();
-
-    //     if ($postTitle != "") {}
-    //     if($postDescription != ""){}
-    //     if($postUrlToImage != ""){}
-    // }
 }

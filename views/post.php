@@ -1,7 +1,12 @@
 <?php 
 require_once 'checkRoutes.php';
+require_once '../controllers/WewsController.php';
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+   $id = $_GET['id'];
+   $wews = new WewsController();
+   $post = $wews->getPostInfo($id);
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +20,7 @@ require_once 'checkRoutes.php';
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
-    <title>Document</title>
+    <title>Wews</title>
 </head>
 
 <body class="<?php echo $theme; ?>">
@@ -61,76 +66,42 @@ require_once 'checkRoutes.php';
         <section class="mainPage">
             <div class="PostPage">
                 <div class="postContainer">
-                <div class="mainImage">
-              <img
-                src="https://www.gftskills.com/wp-content/uploads/2012/09/7-Ways-Juggling-Makes-A-Soccer-Player-Better-FB.jpg"
-                alt="image"
-                class="postImage"
-              />
-            </div>
-            <div class="postDetails">
-              <div class="authorPost">
-                  <i class="far fa-user"></i> <span>Autor</span>
-              </div>
-              <div class="authorPost">
-                  <i class="far fa-calendar-alt"></i> <span>10/10/1998</span>
-              </div>
-              <div class="authorPost">
-                  <i class="fas fa-hashtag"></i> <span>Muzica</span>
-              </div>
-            </div>
-            
-            <div class="titlePost">
-              <p>Title Post</p>
-            </div>
-            <div class="descriptionPost">
-              <p>
-                <br />
-                <br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                corporis, architecto libero perspiciatis reiciendis, cupiditate
-                voluptatum quas doloremque dolores cumque, eveniet perferendis
-                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                corporis, architecto libero perspiciatis reiciendis, cupiditate
-                voluptatum quas doloremque dolores cumque, eveniet perferendis
-                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                corporis, architecto libero perspiciatis reiciendis, cupiditate
-                voluptatum quas doloremque dolores cumque, eveniet perferendis
-                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                corporis, architecto libero perspiciatis reiciendis, cupiditate
-                voluptatum quas doloremque dolores cumque, eveniet perferendis
-                itaque facilis magnam eaque commodi. Facere, odit facilis. Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-                corporis, architecto libero perspiciatis reiciendis, cupiditate
-                voluptatum quas doloremque dolores cumque, eveniet perferendis
-                itaque facilis magnam eaque commodi.
-                <br />
-                <br />
-                <br />
-                Facere, odit facilis. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Ipsum corporis, architecto libero perspiciatis
-                reiciendis, cupiditate voluptatum quas doloremque dolores
-                cumque, eveniet perferendis itaque facilis magnam eaque commodi.
-                Facere, odit facilis. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Ipsum corporis, architecto libero perspiciatis
-                reiciendis, cupiditate voluptatum quas doloremque dolores
-                cumque, eveniet perferendis itaque facilis magnam eaque commodi.
-                Facere, odit facilis.
-              </p>
-            </div>
-            <div class="moreImages">
-              <img src="https://via.placeholder.com/1000" alt="" />
-              <img src="https://via.placeholder.com/1000" alt="" />
-              <img src="https://via.placeholder.com/1000" alt="" />
-              <img src="https://via.placeholder.com/1000" alt="" />
-              <img src="https://via.placeholder.com/1000" alt="" />
-            </div>
-            </div>
+                    <div class="mainImage">
+                        <img src= <?php echo $post['postUrlToImage']; ?>
+                            alt="image" class="postImage" />
+                    </div>
+                    <div class="postDetails">
+                        <div class="authorPost">
+                            <i class="far fa-user"></i> <span><?php echo $post['postAuthor']; ?></span>
+                        </div>
+                        <div class="authorPost">
+                            <i class="far fa-calendar-alt"></i> <span><?php echo $post['postPublishedAt']; ?></span>
+                        </div>
+                        <div class="authorPost">
+                            <i class="fas fa-hashtag"></i> <span><?php echo $post['postCategory']; ?></span>
+                        </div>
+                    </div>
+                    <div class="titlePost">
+                        <p> <?php echo $post['postTitle']; ?> </p>
+                    </div>
+                    <div class="descriptionPost">
+                        <p>
+                            <br />
+                            <br />
+                            <?php echo $post['postContent']; ?>
+                        </p>
+                    </div>
+                    <!-- <div class="moreImages">
+                        <img src="https://via.placeholder.com/1000" alt="" />
+                        <img src="https://via.placeholder.com/1000" alt="" />
+                        <img src="https://via.placeholder.com/1000" alt="" />
+                        <img src="https://via.placeholder.com/1000" alt="" />
+                        <img src="https://via.placeholder.com/1000" alt="" />
+                    </div> -->
                 </div>
             </div>
+
+            <!-- close PostPage  -->
             <div class="pageOptions">
                 <div class="categories">
                     <div class="categoriesTitle">
@@ -256,6 +227,7 @@ require_once 'checkRoutes.php';
             </div>
         </section>
     </article>
+
     <aside></aside>
     <footer class="footer">
         <div class="iconsFooter">

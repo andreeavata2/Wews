@@ -105,7 +105,7 @@ if (isset($_GET['error'])) {
         </div>
         <div class="phone">
           <p>Telefon <span class="mandatory">*</span></p>
-          <input type="tel" name="phone" pattern="[0-9]{4}-[0-9]{3}-[0-9]{3}" class="form-control" placeholder="Telefon" required />
+          <input type="tel" name="phone" class="form-control" placeholder="Telefon" required />
         </div>
         <div class="birthday">
           <p>Zi de nastere</p>
