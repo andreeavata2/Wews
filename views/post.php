@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    $id = $_GET['id'];
    $wews = new WewsController();
    $post = $wews->getPostInfo($id);
+   $posts = $wews->getPosts();
 }
 ?>
 <!DOCTYPE html>

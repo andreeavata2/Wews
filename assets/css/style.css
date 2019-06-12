@@ -827,6 +827,9 @@ input[type="date"]::-webkit-inner-spin-button{
 .button i {
   padding: 5px;
 }
+.mandatoryField{
+  padding: 15px;
+}
 .space {
   padding: 25px;
 }
@@ -1027,28 +1030,43 @@ body.dark .categoriesContainer a:hover{
 /* popup */
 .popup {
   width: 100%;
- color: green;
- /* background: #d5e1df; */
- text-align: center;
- padding: 10px;
+  margin: 20px 0;
+  padding: 15px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  border-left: 2px solid green;
+  color: green;
+  background: #eee9e9;
 }
 
 .successContainer {
   width: 100%;
   margin: 20px 0;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
   display: block;
   box-sizing: border-box;
-  clear: both;
-  border: 1px solid red;
-  color: red;
+  border-left: 2px solid green;
+  color: green;
+  background: #eee9e9;
 }
-.errorContainer .errorMessage,
-.errorContainerForCheck .errorMessage {
+.successMessage{
+  color: green;
+}
+.errorContainer  {
+  width: 100%;
+  margin: 20px 0;
+  padding: 15px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  border-left: 2px solid red;
   color: red;
-  font-family: "Roboto", sans-serif;
-  font-size: 15px;
+  background: #eee9e9;
+}
+.errorMessage{
+  color: red;
 }
 
 

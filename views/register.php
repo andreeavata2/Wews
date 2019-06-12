@@ -7,19 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <?php 
 require_once 'checkRoutes.php';
 ?>
-<?php
-require_once 'checkRoutes.php';
-$error = '';
-$mess = '';
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    switch ($error) {
-        case 'emailIsAllreadyExist':
-            $mess = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
-            // header("Location:/Wews/views/register.php");
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,11 +59,21 @@ if (isset($_GET['error'])) {
     <div class="background">
       <div class="space"></div>
       <section class="loginBox">
-        <div class="popup">
-          <?php  
-          require_once 'popup-success.php'; 
-          ?>
-        </div>
+      <?php
+                if (isset($_GET['error'])) {
+                    $errorMsg = "";
+                    $error = $_GET['error'];
+                    switch ($error) {
+                        case 'emailIsAllreadyExist':
+                            $errorMsg = 'Acest email este deja folosit. Te rugam sa introduci un alt email.';
+                            break;
+                    }
+                    echo '
+                            <div class="errorContainer" id="errorContainerId">
+                                <span class="errorMessage">' . $errorMsg . '</span>
+                            </div>';
+                }
+                    ?>
         <div class="firstName">
           <p>
             Nume <span class="mandatory">*</span>
@@ -120,7 +117,7 @@ if (isset($_GET['error'])) {
           <p>Tara <span class="mandatory">*</span></p>
           <input type="text" minlength="3"  name="country" class="form-control" placeholder="Tara" required />
         </div>
-        <div class="country">
+        <div class="mandatoryField">
           <span class="mandatory">*</span> Campuri obligatorii.
         </div>
         <div class="btn">
