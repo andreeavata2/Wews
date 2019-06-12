@@ -18,11 +18,11 @@ class WewsController
         $res = $WewsModel->getPostsByCategory($cat);
         return $res ? $res : false;
     }
-    public function getPosts($total = 0)
+    public function getPosts($categoriesArray = "")
     {
         require_once '../models/WewsModel.php';
         $WewsModel = new WewsModel();
-        $res = $WewsModel->getPostsFromDb($total);
+        $res = $WewsModel->getPostsFromDb($categoriesArray);
         return $res ? $res : false;
     }
     public function getPostsOrderBy($total = 0)

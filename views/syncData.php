@@ -2,7 +2,13 @@
 require_once '../controllers/WewsController.php';
 $wews = new WewsController();
 $posts = $wews->getPosts();
-if ($posts === false) { // if false because are 0 lines or because the time expired
+
+if(isset($_SESSION['email'])){
+    //  coloana updatedAt , duration 20
+    // metoda if(current + 20*3600 > updated) 
+    // if(a trecut){ // delete all posts // , call tha api call to get posts updated, #wews->updatedDone($current)}
+    
+}else if ($posts === false ) { // if false because are 0 lines or because the time expired
     $apiBody = "https://newsapi.org/v2/top-headlines";
     $API_KEY = "3e2c1db3db4d483b89d53e709221d179";
     $newApiCategories = array("business", "entertainment", "health", "science", "sports", "technology");

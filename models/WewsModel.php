@@ -88,14 +88,28 @@ class WewsModel
         return $newList;
     }
 
-    public function getPostsFromDb() {
+    public function getPostsFromDb($categories = "") {
         $list = [];
         $newList = array();
 
-        $sqlQ = "SELECT * FROM (
-            SELECT * FROM posts ORDER BY RAND() LIMIT 20
-        ) u
-        ORDER BY postTitle";
+        if($categories !== "") {
+            // $compCat = "";
+            // for($i = 0;$i<count($categories);$i++){
+            //     $compCat .='%gg%'.  
+            //  }
+            //SELECT * FROM posts WHERE `postCategory` LIKE 'Text%' OR `postCategory` LIKE 'Hello%' OR `postCategory` LIKE 'That%'
+            $sqlQ = "SELECT * FROM (
+                SELECT * FROM posts ORDER BY RAND() LIMIT 20
+            ) u Where postCategory  LIKE '%business%' OR `postCategory` LIKE '%sports%' 
+            ORDER BY postTitle";
+        }else{
+            $sqlQ = "SELECT * FROM (
+                SELECT * FROM posts ORDER BY RAND() LIMIT 20
+            ) u
+            ORDER BY postTitle";
+        }
+
+        
         
         $sql = $this->connection->prepare($sqlQ);
         // return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);

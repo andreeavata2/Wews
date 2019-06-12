@@ -2,11 +2,15 @@
 require_once 'checkRoutes.php';
 require_once '../controllers/WewsController.php';
 $wews = new WewsController();
+$userCategories = AccountController::getUserCategories();
 if(isset($_GET['category'])){
     $posts = $wews->getPostByCategory($_GET['category']);
 }else{
+    // 
     $posts = $wews->getPosts();
 }
+
+
 
 ?>
 
