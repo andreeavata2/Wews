@@ -65,31 +65,5 @@ class WewsModel
             return false;
         }
     }
-
-    public function getPostToDb($postId,$postSourceName,$postAuthor,$postTitle,$postDescription,$postUrl,$postUrlToImage,$postPublishedAt,$postContent,$postCategory,$postLoadedAt){
-        $list = [];
-        $newList = array();
-        
-        $sql = $this->connection->prepare('SELECT * FROM posts WHERE postId = :postId');
-        // return ($sql->rowcount() ? $sql->fetch(PDO::FETCH_ASSOC) : false);
-
-        $sql->execute(array(':postId' => $postId));
-        foreach ($sql->fetchAll() as $result) {
-            array_push($newList,
-                array("postId" => $result['postId'],
-                    "postSourceName" => $result['postSourceName'],
-                    "postAuthor" => $result['postAuthor'],
-                    "postTitle" => $result['postTitle'],
-                    "postDescription" => $result['postDescription'],
-                    "postUrl" => $result['postUrl'],
-                    "postUrlToImage" => $result['postUrlToImage'],
-                    "postPublishedAt" => $result['postPublishedAt'],
-                    "postContent" => $result['postContent'],
-                    "postCategory" => $result['postCategory'],
-                    "postLoadedAt" => $result['postLoadedAt'])
-            );
-        }
-        return $newList;
-    }
     
 }

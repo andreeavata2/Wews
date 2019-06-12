@@ -774,7 +774,6 @@ input[type="date"]::-webkit-inner-spin-button{
 .more div a:hover {
   color: red;
 }
-.forgotPass a,
 .signUp a {
   text-decoration: none;
   color: #808080;
@@ -784,7 +783,6 @@ input[type="date"]::-webkit-inner-spin-button{
   min-width: 160px;
   height: 50px;
   background-color: #2e8b57;
-  border-radius: 25px;
   transition-duration: 0.5s;
   color: #000;
   outline: none;
@@ -821,18 +819,9 @@ input[type="date"]::-webkit-inner-spin-button{
   color: #808080;
   font-family: "Playfair Display", serif;
 }
-.loginBox .forgotPass {
-  text-align: center;
-  margin: 5px;
-}
 .cancel .cancelRef p {
   font-size: 20px;
   padding: 20px;
-}
-.btn.forgotPass {
-  display: flex;
-  margin: 10px auto;
-  width: 30%;
 }
 .cancel .cancelRef p:hover {
   color: red;
@@ -866,7 +855,7 @@ input[type="date"]::-webkit-inner-spin-button{
   box-sizing: border-box;
   margin:0 auto;
   text-align: center;
-  background: red;
+  background: #808080;
   color:#fff;
 }
 
@@ -1118,6 +1107,26 @@ body.dark .categoriesContainer a:hover{
 /* popup */
 .popup {
   width: 100%;
- color: red;
- background: #000;
+ color: green;
+ /* background: #d5e1df; */
+ text-align: center;
+ padding: 10px;
+}
+
+.successContainer {
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+  clear: both;
+  border: 1px solid red;
+  color: red;
+}
+.errorContainer .errorMessage,
+.errorContainerForCheck .errorMessage {
+  color: red;
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
 }

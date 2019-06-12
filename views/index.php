@@ -1,5 +1,8 @@
 <?php
 require_once 'checkRoutes.php';
+require_once '../controllers/WewsController.php';
+$wews = new WewsController();
+$posts = $wews->getPosts();
 ?>
 
 <!DOCTYPE html>
@@ -74,10 +77,18 @@ require_once 'checkRoutes.php';
                                     <i class="fas fa-angle-right"></i>
                                 </span>
                                 <span class="nameCategories">
-                                    Tehnologie
+                                    Business
+                                    <?php $category= "business"; ?>
                                 </span>
                                 <span class="numberOfPostsForCategories">
-                                    10
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
                                 </span>
                             </a>
                         </div>
@@ -87,10 +98,18 @@ require_once 'checkRoutes.php';
                                     <i class="fas fa-angle-right"></i>
                                 </span>
                                 <span class="nameCategories">
-                                    Stiinta
+                                    Entertainment
+                                    <?php $category= "entertainment"; ?>
                                 </span>
                                 <span class="numberOfPostsForCategories">
-                                    10
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
                                 </span>
                             </a>
                         </div>
@@ -100,10 +119,18 @@ require_once 'checkRoutes.php';
                                     <i class="fas fa-angle-right"></i>
                                 </span>
                                 <span class="nameCategories">
-                                    Politica
+                                    Health
+                                    <?php $category= "health"; ?>
                                 </span>
                                 <span class="numberOfPostsForCategories">
-                                    10
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
                                 </span>
                             </a>
                         </div>
@@ -113,10 +140,18 @@ require_once 'checkRoutes.php';
                                     <i class="fas fa-angle-right"></i>
                                 </span>
                                 <span class="nameCategories">
-                                    Sport
+                                    Science
+                                    <?php $category= "science"; ?>
                                 </span>
                                 <span class="numberOfPostsForCategories">
-                                    10
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
                                 </span>
                             </a>
                         </div>
@@ -126,10 +161,39 @@ require_once 'checkRoutes.php';
                                     <i class="fas fa-angle-right"></i>
                                 </span>
                                 <span class="nameCategories">
-                                    Social
+                                    Sports
+                                    <?php $category= "sports"; ?>
                                 </span>
                                 <span class="numberOfPostsForCategories">
-                                    10
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="categoriesContainer">
+                            <a href="#">
+                                <span class="icon">
+                                    <i class="fas fa-angle-right"></i>
+                                </span>
+                                <span class="nameCategories">
+                                    Technology
+                                    <?php $category= "technology"; ?>
+                                </span>
+                                <span class="numberOfPostsForCategories">
+                                    <?php
+                                    $countNumber=0;
+                                    foreach ($posts as $post){
+                                        if($post['postCategory']==$category)
+                                            $countNumber+=1;
+                                    }
+                                    echo $countNumber;
+                                    ?>
                                 </span>
                             </a>
                         </div>

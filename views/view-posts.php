@@ -8,7 +8,7 @@
         ?> 
         <div class="articleContainer">
         <div class="articleImg">
-            <img src="http://3.bp.blogspot.com/-NueqQ2PZA84/UKyNDSYhmhI/AAAAAAAAVPc/NiLUWaN8g5c/s1600/105412447497948643_A29uXd1s_c.jpg" alt="imgPost" />
+            <img src=<?php echo $post['postUrlToImage']; ?> alt="imgPost" />
         </div>
         <div class="articleTitle">
             <h2>
@@ -18,22 +18,21 @@
             </h2>
         </div>
         <div class="articleDescription">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Doloremque repudiandae animi ullam velit quas distinctio nesciunt
-            molestias delectus labore. Corrupti iure maiores minus esse soluta
-            a eius distinctio, eveniet magni.
+            <?php 
+            echo $post['postDescription'];
+            ?>
         </div>
         <div class="articleButton">
             <button class="btn normal" onclick="location.href='post.php'" type="button">
                 Vezi mai multe
             </button>
         </div>
-        
+        </div>
         <?php 
     }
 ?>
 
-    </div>
+   
 
 
 

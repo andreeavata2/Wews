@@ -105,12 +105,7 @@ class AccountController
 
             $AuthModel = new AuthModel();
             $res = $AuthModel->userExisting($email);
-        if($res==false){
-            echo $res2;
             $res2 = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
-        } else {
-            header("Location:/Wews/views/register.php?error=emailIsAllreadyExist");
-        }
 
             // $AuthModel = new AuthModel();
             // $res = $AuthModel->updateUserInfoFromDb($id,$firstName,$lastName,$email,$phone,$DOB,$country);
@@ -159,10 +154,10 @@ class AccountController
 
         $res = $AuthModel->setCategoriesInDb($finalRes);
         $res === false ? 
-        header("Location:/Wews/views/setari.php?error=categoriiOf")
+        header("Location:/Wews/views/setari.php?error=categoriiOff")
         : 
 
-        header("Location:/Wews/views/setari.php?success=categoriiONN");
+        header("Location:/Wews/views/setari.php?success=categoriiOn");
 
         }
     }

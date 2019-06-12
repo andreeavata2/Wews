@@ -108,7 +108,7 @@ if(isset($_GET['successfullUpdated'])){
                                 value="<?php echo $userInfo['lastName']; ?>" placeholder="Prenumele tau..." />
 
                             <label for="email">E-mail</label>
-                            <input type="text" id="email" name="email" value="<?php echo $userInfo['email']; ?>"
+                            <input type="text" readonly="readonly" id="email" name="email" value="<?php echo $userInfo['email']; ?>"
                                 placeholder="E-mail-ul tau..." />
 
                             <label for="phone">Telefon</label>

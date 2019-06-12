@@ -26,17 +26,4 @@ class WewsController
         return $res ? "trueee" : "falseee";
     }
 
-    // public static function getAllPost($category, $postTitle, $postDescription, $postUrlToImage){
-    //     // $postTitle = ""; hai ca ma uit eu :D
-
-    //     // $postDescription = "";
-    //     // $postUrlToImage = "";
-
-    //     require_once '../models/WewsModel.php';
-    //     $WewsModel = new WewsModel();
-
-    //     if ($postTitle != "") {}
-    //     if($postDescription != ""){}
-    //     if($postUrlToImage != ""){}
-    // }
 }
