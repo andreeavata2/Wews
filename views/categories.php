@@ -1,5 +1,3 @@
-
-
 <div class="categories">
     <div class="categoriesTitle">
         <span>Categorii</span>
@@ -11,45 +9,45 @@
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Business
-                    <?php $category= "business"; ?>
+                    Afaceri
+                    <?php $category = "business"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                   echo count($wews->getPostByCategory('business'));
-                                    ?>
+                    echo count($wews->getPostByCategory('business'));
+                    ?>
                 </span>
             </a>
         </div>
-         <div class="categoriesContainer <?php echo in_array("entertainment", $userCategories) ? "" : " hide"; ?> ">
+        <div class="categoriesContainer <?php echo in_array("entertainment", $userCategories) ? "" : " hide"; ?> ">
             <a href="index.php?category=entertainment">
                 <span class="icon">
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Entertainment
-                    <?php $category= "entertainment"; ?>
+                    Divertisment
+                    <?php $category = "entertainment"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                    echo count($wews->getPostByCategory('entertainment'));
-                                    ?>
+                    echo count($wews->getPostByCategory('entertainment'));
+                    ?>
                 </span>
             </a>
         </div>
-         <div class="categoriesContainer <?php echo in_array("health", $userCategories) ? "" : " hide"; ?> ">
+        <div class="categoriesContainer <?php echo in_array("health", $userCategories) ? "" : " hide"; ?> ">
             <a href="index.php?category=health">
                 <span class="icon">
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Health
-                    <?php $category= "health"; ?>
+                    Sanatate
+                    <?php $category = "health"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                   echo count($wews->getPostByCategory('health'));
-                                    ?>
+                    echo count($wews->getPostByCategory('health'));
+                    ?>
                 </span>
             </a>
         </div>
@@ -59,13 +57,13 @@
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Science
-                    <?php $category= "science"; ?>
+                    Ştiinţă
+                    <?php $category = "science"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                    echo $wews->getPostByCategory('science') !== false ? count($wews->getPostByCategory('science')) : 0;
-                                    ?>
+                    echo $wews->getPostByCategory('science') !== false ? count($wews->getPostByCategory('science')) : "0";
+                    ?>
                 </span>
             </a>
         </div>
@@ -75,29 +73,29 @@
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Sports
-                    <?php $category= "sports"; ?>
+                    Sport
+                    <?php $category = "sports"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                     echo count($wews->getPostByCategory('sports'));
-                                    ?>
+                    echo count($wews->getPostByCategory('sports'));
+                    ?>
                 </span>
             </a>
         </div>
-         <div class="categoriesContainer <?php echo in_array("technology", $userCategories) ? "" : " hide"; ?> ">
+        <div class="categoriesContainer <?php echo in_array("technology", $userCategories) ? "" : " hide"; ?> ">
             <a href="index.php?category=technology">
                 <span class="icon">
                     <i class="fas fa-angle-right"></i>
                 </span>
                 <span class="nameCategories">
-                    Technology
-                    <?php $category= "technology"; ?>
+                    Tehnologie
+                    <?php $category = "technology"; ?>
                 </span>
                 <span class="numberOfPostsForCategories">
                     <?php
-                                   echo count($wews->getPostByCategory('technology'));
-                                    ?>
+                    echo count($wews->getPostByCategory('technology'));
+                    ?>
                 </span>
             </a>
         </div>

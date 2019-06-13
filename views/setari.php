@@ -44,9 +44,6 @@ $arrayOfCategories = AccountController::getUserCategories();
                         <a href="user_profil.php"><i class="fas fa-user"></i> User Profil</a>
                     </div>
                     <div class="siderbarElement">
-                        <a href="notificari.php"><i class="fas fa-bell"></i>Notificari</a>
-                    </div>
-                    <div class="siderbarElement">
                         <a class="active" href="setari.php">
                             <i class="fas fa-cog"></i>Setari</a>
                     </div>

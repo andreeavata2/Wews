@@ -46,9 +46,6 @@ require_once 'checkRoutes.php';
                         <a class="active" href="user_profil.php"><i class="fas fa-user"></i> User Profil</a>
                     </div>
                     <div class="siderbarElement">
-                        <a href="notificari.php"><i class="fas fa-bell"></i>Notificari</a>
-                    </div>
-                    <div class="siderbarElement">
                         <a href="setari.php"> <i class="fas fa-cog"></i>Setari</a>
                     </div>
                     <div class="siderbarElement">

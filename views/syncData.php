@@ -84,7 +84,7 @@ if(isset($_SESSION['id_user']))
                     $article->urlToImage,
                     $article->publishedAt,
                     $article->content,
-                    $newApiCategories[$i]
+                    $newApiCategories[$i],
                 );
             }
         } else {
