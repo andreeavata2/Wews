@@ -327,7 +327,7 @@ ul.main li a.active {
 /* recentPosts */
 
 .recentImg{
-  width: 100%;
+  width: 50%;
   height: 100px;
   overflow: hidden;
   border-radius: 5px;
@@ -997,9 +997,9 @@ body.dark .theme-title{
   box-shadow: 0 0 0 1px black;
 }
 
-body.dark .theme{
-  /* background: #555555;
-  opacity: 0.8; */
+body.dark .duration-title{
+  background: #000;
+  box-shadow: 0 0 0 1px black;
 }
 
 body.dark .checkbox input[type="submit"]{
@@ -1008,6 +1008,10 @@ body.dark .checkbox input[type="submit"]{
 body.dark .theme input[type="submit"]{
   background: #000;
 }
+body.dark .duration input[type="submit"]{
+  background: #000;
+}
+
 
 /* index.php */
 .errorNotExist{

@@ -103,9 +103,9 @@ class AuthModel
     }
     public function setUpdateAtInDb($currentDate)
     {
-        $sql = "UPDATE users SET updateAt = :updateAt ";
+        $sql = "UPDATE users SET updateAt = :updateAt WHERE id_user = :id";
         $query = $this->connection->prepare($sql);
-        $parameters = array(':updateAt' => $currentDate);
+        $parameters = array(':updateAt' => $currentDate,':id' => $_SESSION['id_user']);
         if($query->execute($parameters))
         {
             return true;

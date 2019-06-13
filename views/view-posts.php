@@ -13,7 +13,7 @@
                 <div class="articleImg">
                     <!-- echo $wews->getPostByCategory('science') !== false ? count($wews->getPostByCategory('science')) : "0"; -->
                     <!-- echo $post['postUrlToImage'] !== null ? $post['postUrlToImage'] : "" -->
-                    <img src=<?php echo $post['postUrlToImage'] !== null ? $post['postUrlToImage'] : "https://makitweb.com/demo/broken_image/images/noimage.png"; ?> alt="imgPng" class="center" />
+                    <img src=<?php echo $post['postUrlToImage'] !== null ? $post['postUrlToImage'] : "https://makitweb.com/demo/broken_image/images/noimage.png"; ?> alt="img" class="center" />
                 </div>
                 <div class="articleTitle">
                     <h2>

@@ -13,14 +13,14 @@
             <a href="post.php?id=<?php echo $post['postId']; ?>">
                 <div class="recentContainer">
                     <div class="recentImg" >
-                        <img src=<?php echo $post['postUrlToImage']; ?> alt="recentPost" class="center"/>
+                        <img src=<?php echo $post['postUrlToImage']; ?> alt="img" class="center"/>
                     </div>
                     <div class="recentDescription">
                         <?php
                         echo explode('[+', $post['postDescription'])[0];
                         ?>
                     </div>
-                    <span><?php echo $post['postPublishedAt']; ?></span>
+                    <!-- <span><?php echo $post['postPublishedAt']; ?></span> -->
                 </div>
             </a>
 
