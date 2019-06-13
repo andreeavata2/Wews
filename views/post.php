@@ -5,7 +5,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
    $id = $_GET['id'];
    $wews = new WewsController();
    $post = $wews->getPostInfo($id);
-   $posts = $wews->getPosts();
+   $userCategories = AccountController::getUserCategories();
+   if(isset($_GET['category'])){
+    $posts = $wews->getPostByCategory($_GET['category']);
+}else{
+    // 
+    $posts = $wews->getPosts($userCategories);
+}
 }
 ?>
 <!DOCTYPE html>
@@ -29,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <nav>
             <ul class="main">
                 <li>
-                    <a class="active" href="index.php"><i class="fas fa-home"></i> Acasa</a>
+                    <a href="index.php"><i class="fas fa-home"></i> Acasa</a>
                 </li>
                 <li>
                     <a href="contact.php"><i class="fas fa-bars"></i> Contact</a>

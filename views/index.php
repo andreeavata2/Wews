@@ -7,7 +7,7 @@ if(isset($_GET['category'])){
     $posts = $wews->getPostByCategory($_GET['category']);
 }else{
     // 
-    $posts = $wews->getPosts();
+    $posts = $wews->getPosts($userCategories);
 }
 
 

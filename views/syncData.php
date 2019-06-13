@@ -35,7 +35,7 @@ if(isset($_SESSION['email'])){
                     $article->urlToImage,
                     $article->publishedAt,
                     $article->content,
-                    $newApiCategories[$i]
+                    $newApiCategories[$i],
                 );
             }
         } else {

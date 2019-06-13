@@ -296,7 +296,7 @@ ul.main li a.active {
 }
 
 .pageRecentPosts {
-  float: left;
+  float: right;
   width: 30%;
   box-sizing: border-box;
   padding: 20px;
@@ -323,14 +323,17 @@ ul.main li a.active {
     margin: 20px 0;
 }
 
-.recentImg {
-  float: left;
-    /* width: 50%; */
-    overflow: hidden;
-    /* max-width: 100px; */
-    width: 100%;
-    display: flex;
-    align-items: center;
+
+/* recentPosts */
+
+.recentImg{
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 5px;
+  align-items: center;
+  min-width: 150px;
+  min-height: 100px;
 }
 
 .recentImg img{
@@ -338,11 +341,13 @@ ul.main li a.active {
 }
 
 .recentDescription {
+  min-height: 100px;
   float: right;
-  padding: 20px;
+  padding: 0 20px;
   font-family: "Srisakdi", cursive;
   font-family: "Playfair Display", serif;
   color: #000;
+  min-width: 100px;
 }
 
 .recentBody a {
@@ -696,60 +701,6 @@ textarea,
   opacity: 0.8;
   cursor: pointer;
 }
-/* notificari */
-.main-notification-post {
-  padding: 60px;
-}
-.body-notification-post {
-  margin: 5px;
-  box-shadow: 0 0 0 1px #f2f2f2;
-  padding: 10px;
-  background: #f2f2f2;
-  border-radius: 4px;
-}
-.body-notification-post a {
-  text-decoration: none;
-  color: #000;
-}
-.notification-title-post {
-  font-family: "Srisakdi", cursive;
-  font-family: "Playfair Display", serif;
-  font-size: 30px;
-  margin: 5px;
-  box-shadow: 0 0 0 1px #f2f2f2;
-  background: #f2f2f2;
-  border-radius: 4px;
-}
-
-.notification-container {
-  display: flex;
-}
-
-.notification-img {
-  float: left;
-  margin-left: auto;
-  margin-right: auto;
-}
-.notification-img img {
-  margin: 10px;
-  border-radius: 10%;
-}
-
-.notification-descripton {
-  float: right;
-  padding: 20px;
-  font-family: "Srisakdi", cursive;
-  font-family: "Playfair Display", serif;
-  color: #000;
-}
-.notification-description p {
-  padding: 20px;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  line-height: 1.3;
-  font-family: "Roboto", sans-serif;
-  color: darkslategray;
-}
 
 /* login page here */
 
@@ -966,6 +917,14 @@ body.dark .theme input[type="submit"]{
 }
 
 /* index.php */
+.errorNotExist{
+  background: #e9e7e2;
+  color: #555555;
+  padding: 30px;
+  font-family: "Playfair Display", serif;
+  width: 100%;
+  text-align: center;
+}
 body.dark .mainPage{
   background: black;
     opacity: 0.9;
@@ -1068,6 +1027,7 @@ body.dark .categoriesContainer a:hover{
 .errorMessage{
   color: red;
 }
+
 
 
 @media only screen and (max-width: 1000px) {

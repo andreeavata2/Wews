@@ -91,20 +91,28 @@ class WewsModel
     public function getPostsFromDb($categories = "") {
         $list = [];
         $newList = array();
+        // cate el sunt in array, daca e dif de string gol mg mai dep, 1 cu prima chestie,   for 0-count-1   ultimul el fara or
+        // echo 'blaaaaaaaaaaa  ' . count($categories);
+        $numberOfCategories= count($categories);
 
-        if($categories !== "") {
-            // $compCat = "";
-            // for($i = 0;$i<count($categories);$i++){
-            //     $compCat .='%gg%'.  
-            //  }
-            //SELECT * FROM posts WHERE `postCategory` LIKE 'Text%' OR `postCategory` LIKE 'Hello%' OR `postCategory` LIKE 'That%'
+        // if($numberOfCategories != 0) {
+            if($numberOfCategories==1){
+                $sqlQ = "SELECT * FROM (
+                    SELECT * FROM posts ORDER BY RAND() 
+                ) u Where postCategory  LIKE '%$categories[0]%' 
+                ORDER BY postTitle";
+            }else if($numberOfCategories>1){
+                $sqlQ = "SELECT * FROM (
+                    SELECT * FROM posts ORDER BY RAND() 
+                ) u Where postCategory  LIKE '%$categories[0]%' ";
+                for($i=1;$i<=$numberOfCategories-1;$i++){
+                    $sqlQ = $sqlQ . " OR postCategory LIKE '%" . $categories[$i] . "%' ";
+                }
+                $sqlQ = $sqlQ . " ORDER BY postTitle ";
+            }
+        else{
             $sqlQ = "SELECT * FROM (
-                SELECT * FROM posts ORDER BY RAND() LIMIT 20
-            ) u Where postCategory  LIKE '%business%' OR `postCategory` LIKE '%sports%' 
-            ORDER BY postTitle";
-        }else{
-            $sqlQ = "SELECT * FROM (
-                SELECT * FROM posts ORDER BY RAND() LIMIT 20
+                SELECT * FROM posts ORDER BY RAND() 
             ) u
             ORDER BY postTitle";
         }

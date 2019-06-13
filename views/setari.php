@@ -41,9 +41,6 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         <a href="user_profil.php"><i class="fas fa-user"></i> User Profil</a>
                     </div>
                     <div class="siderbarElement">
-                        <a href="notificari.php"><i class="fas fa-bell"></i>Notificari</a>
-                    </div>
-                    <div class="siderbarElement">
                         <a class="active" href="setari.php">
                             <i class="fas fa-cog"></i>Setari</a>
                     </div>
@@ -78,17 +75,17 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                             Categorii:
                         </div>
                         <input type="checkbox" name="categorie[]" id="business" value="business" <?php if (in_array('business', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="business">Business</label><br /><br />
+                        <label for="business">Afaceri</label><br /><br />
                         <input type="checkbox" name="categorie[]" id="entertainment" value="entertainment" <?php if (in_array('entertainment', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="entertainment">Entertainment</label><br /><br />
+                        <label for="entertainment">Divertisment</label><br /><br />
                         <input type="checkbox" name="categorie[]" id="health" value="health" <?php if (in_array('health', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="health">Health</label><br /><br />
+                        <label for="health">Sanatate</label><br /><br />
                         <input type="checkbox" name="categorie[]" id="science" value="science" <?php if (in_array('science', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="science">Science</label><br /><br />
+                        <label for="science">Stiinta</label><br /><br />
                         <input type="checkbox" name="categorie[]" id="sports" value="sports" <?php if (in_array('sports', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="sports">Sports</label><br /><br />
+                        <label for="sports">Sport</label><br /><br />
                         <input type="checkbox" name="categorie[]" id="technology" value="technology" <?php if (in_array('technology', $arrayOfCategories)) echo 'checked'; ?> />
-                        <label for="technology">Technology</label><br /><br />
+                        <label for="technology">Tehnologie</label><br /><br />
                         <input type="submit" value="Submit" />
                     </div>
                     <div class="theme">

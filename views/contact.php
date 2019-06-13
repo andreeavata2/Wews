@@ -79,8 +79,8 @@ require_once 'checkRoutes.php';
         <p>andreea.vatamanelu@yahoo.com</p>
         <p>ralucamavriche@yahoo.com</p>
         <h2>Sau la numerele de telefon:</h2>
-        <p>0761032361 - Andreea</p>
         <p>0743302140 - Raluca</p>
+        <p>0761032361 - Andreea</p>
       </form>
       <div class="spaceEnd"></div>
     </div>
