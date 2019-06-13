@@ -88,4 +88,30 @@ class AuthModel
             return false;
         }
     }
+    public function setdurationInDb($duration,$updateAt)
+    {
+        $sql = "UPDATE users SET duration = :duration,updateAt = :updateAt WHERE id_user = :id";
+        $query = $this->connection->prepare($sql);
+        $parameters = array(':duration' => $duration,':updateAt' => $updateAt ,':id' => $_SESSION['id_user']);
+        if($query->execute($parameters))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    public function setUpdateAtInDb($currentDate)
+    {
+        $sql = "UPDATE users SET updateAt = :updateAt ";
+        $query = $this->connection->prepare($sql);
+        $parameters = array(':updateAt' => $currentDate);
+        if($query->execute($parameters))
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

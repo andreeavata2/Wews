@@ -150,5 +150,18 @@ class WewsModel
             return false;
         }
     }
+    public function deleteAllPostsFromDb()
+    {
+        $sql = "DELETE FROM posts ";
+        $query = $this->connection->prepare($sql);
+    
+        if($query->execute())
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
 }

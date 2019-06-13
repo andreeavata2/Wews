@@ -1,5 +1,6 @@
 <?php 
 require_once '../controllers/AccountController.php';
+require_once 'checkRoutes.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::SignIn(); //  static function
     // $auth  = new AuthController();

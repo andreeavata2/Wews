@@ -9,9 +9,6 @@ if(isset($_GET['category'])){
     // 
     $posts = $wews->getPosts();
 }
-
-
-
 ?>
 
 <!DOCTYPE html>

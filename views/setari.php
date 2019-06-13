@@ -5,14 +5,16 @@ if (!$isLogged) {
 }
 
 require_once '../controllers/AccountController.php';
+require_once '../controllers/WewsController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::getTheme();
     AccountController::getCategories();
+    AccountController::setDuration();
+
 }
 
-// $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
-$arrayOfCategories = AccountController::getUserCategories();
 $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
+$arrayOfCategories = AccountController::getUserCategories();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +25,8 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" />
 
     <title>Setari</title>
@@ -77,17 +80,23 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         <div class="checkbox-title">
                             Categorii:
                         </div>
-                        <input type="checkbox" name="categorie[]" id="business" value="business" <?php if (in_array('business', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="business" value="business"
+                            <?php if (in_array('business', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="business">Business</label><br /><br />
-                        <input type="checkbox" name="categorie[]" id="entertainment" value="entertainment" <?php if (in_array('entertainment', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="entertainment" value="entertainment"
+                            <?php if (in_array('entertainment', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="entertainment">Entertainment</label><br /><br />
-                        <input type="checkbox" name="categorie[]" id="health" value="health" <?php if (in_array('health', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="health" value="health"
+                            <?php if (in_array('health', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="health">Health</label><br /><br />
-                        <input type="checkbox" name="categorie[]" id="science" value="science" <?php if (in_array('science', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="science" value="science"
+                            <?php if (in_array('science', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="science">Science</label><br /><br />
-                        <input type="checkbox" name="categorie[]" id="sports" value="sports" <?php if (in_array('sports', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="sports" value="sports"
+                            <?php if (in_array('sports', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="sports">Sports</label><br /><br />
-                        <input type="checkbox" name="categorie[]" id="technology" value="technology" <?php if (in_array('technology', $arrayOfCategories)) echo 'checked'; ?> />
+                        <input type="checkbox" name="categorie[]" id="technology" value="technology"
+                            <?php if (in_array('technology', $arrayOfCategories)) echo 'checked'; ?> />
                         <label for="technology">Technology</label><br /><br />
                         <input type="submit" value="Submit" />
                     </div>
@@ -97,10 +106,34 @@ $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
                         </div>
                         <input type="radio" name="theme" id="white" value="white" <?php if ($userInfo['theme'] === 'white') {
                                                                                         echo 'checked';
-                                                                                    } ?> /> <label for="white">White</label><br />
+                                                                                    } ?> /> <label
+                            for="white">White</label><br />
                         <input type="radio" name="theme" id="dark" value="dark" <?php if ($userInfo['theme'] === 'dark') {
                                                                                     echo 'checked';
-                                                                                } ?> /> <label for="dark">Dark</label><br />
+                                                                                } ?> /> <label
+                            for="dark">Dark</label><br />
+                        <input type="submit" value="Submit" />
+                    </div>
+                    <div class="duration">
+                        <div class="duration-title">
+                            Interval de timp:
+                        </div>
+                        <input type="radio" name="duration" id="2minute" value="2 minutes" <?php if ($userInfo['duration'] === '2 minutes') {
+                                                                                        echo 'checked';
+                                                                                    } ?> /> <label
+                            for="2minute">2 minutes</label><br />
+                        <input type="radio" name="duration" id="5minute" value="5 minutes" <?php if ($userInfo['duration'] === '5 minutes') {
+                                                                                    echo 'checked';
+                                                                                } ?> /> <label
+                            for="5minute">5 minute</label><br />
+                        <input type="radio" name="duration" id="2h" value="2 hour" <?php if ($userInfo['duration'] === '2 hour') {
+                                                                                    echo 'checked';
+                                                                                } ?> /> <label
+                            for="2h">2h</label><br />
+                        <input type="radio" name="duration" id="12h" value="12 hour" <?php if ($userInfo['duration'] === '12 hour') {
+                                                                                    echo 'checked';
+                                                                                } ?> /> <label
+                            for="12h">12h</label><br />
                         <input type="submit" value="Submit" />
                     </div>
                     <?php

@@ -696,6 +696,45 @@ textarea,
   opacity: 0.8;
   cursor: pointer;
 }
+
+.duration{
+  padding: 50px;
+  margin: 50px auto;
+  width: 40%;
+  background: #d5e1df;
+  border-radius: 3px;
+}
+.duration input[type="submit"]{
+  background-color: #2e8b57;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 10px;
+}
+.duration input[type="submit"]:hover {
+  background: #000;
+  color: #fff;
+  border: 1px solid transparent;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.duration input[type="radio"] {
+  margin: 10px;
+}
+.duration-title {
+  font-size: 30px;
+  box-shadow: 0 0 0 1px #b3b3b3;
+  border-radius: 2px;
+  padding: 10px;
+  margin: 5px auto;
+  background: #2e8b57;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+  color: white;
+}
 /* notificari */
 .main-notification-post {
   padding: 60px;

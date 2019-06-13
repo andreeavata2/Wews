@@ -176,4 +176,34 @@ class AccountController
             header("Location:/Wews/views/setari.php?success=themeOn");
         }
     }
+
+    public static function setDuration()
+    {
+        if (isset($_POST["duration"])) {
+            require_once '../models/AuthModel.php';
+            $duration = AccountController::clearData($_POST["duration"]);
+            $AuthModel = new AuthModel();
+            $currentDate = new DateTime(); //  the current time
+            $updateAt = $currentDate -> format('Y-m-d H:i:s');
+            $res = $AuthModel->setdurationInDb($duration,$updateAt);
+            $res === false ? 
+            header("Location:/Wews/views/setari.php?error=durationOff")
+            : 
+
+            header("Location:/Wews/views/setari.php?success=durationOn");
+        }
+    }
+    public static function setUpdateAt($currentDate)
+    {
+        require_once '../models/AuthModel.php';
+        $AuthModel = new AuthModel();
+        $res = $AuthModel->setUpdateAtInDb($currentDate);
+        $res === false ? 
+        header("Location:/Wews/views/setari.php?error=updateOff")
+        : 
+
+        header("Location:/Wews/views/setari.php?success=updateOn");
+
+
+    }
 }

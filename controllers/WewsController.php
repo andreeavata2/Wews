@@ -48,4 +48,11 @@ class WewsController
         $res = $WewsModel->addPostToDb($postSourceName,$postAuthor ,$postTitle,$postDescription,$postUrl,$postUrlToImage,$postPublishedAt,$postContent,$postCategory,$stringPostLoadedAt);
         return $res ? "trueee" : "falseee";
     }
+    public function deleteAllPosts()
+    {
+        require_once '../models/WewsModel.php';
+        $WewsModel = new WewsModel();
+        $res = $WewsModel->deleteAllPostsFromDb();
+        return $res ? $res : false;
+    }
 }
