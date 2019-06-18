@@ -3,16 +3,13 @@ require_once 'checkRoutes.php';
 if (!$isLogged) {
     header('Location:/Wews/views/login.php?error=noacces');
 }
-
 require_once '../controllers/AccountController.php';
 require_once '../controllers/WewsController.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     AccountController::getTheme();
     AccountController::getCategories();
     AccountController::setDuration();
-
 }
-
 $userInfo = AccountController::getUserInfo($_SESSION['id_user']);
 $arrayOfCategories = AccountController::getUserCategories();
 ?>
@@ -161,6 +158,8 @@ $arrayOfCategories = AccountController::getUserCategories();
                             case 'categoriiOn':
                                 $successMsg = 'Categoriile/Tema s-au actualizat cu succes.';
                                 break;
+                            case 'durationOn':
+                                $successMsg = 'Categorii/tema/durata actualizate cu succes.';
                         }
                         echo '
                             <div class="successContainer" id="successContainerId">
